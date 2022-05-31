@@ -8,7 +8,8 @@ import { FooterComponent } from './plantillas/footer/footer.component';
 import { AppRoutingModule } from './app-routing.module';
 import {ReactiveFormsModule, FormsModule} from '@angular/forms'
 import {HttpClientModule} from '@angular/common/http';
-import { MenuComponent } from './plantillas/menu/menu.component'
+import { MenuComponent } from './plantillas/menu/menu.component';
+import { UsuariosComponent } from './vistas/usuarios/usuarios.component'
 
 @NgModule({
   declarations: [
@@ -16,7 +17,8 @@ import { MenuComponent } from './plantillas/menu/menu.component'
     HeaderComponent,
     FooterComponent,
     routingComponents,
-    MenuComponent
+    MenuComponent,
+    UsuariosComponent
   ],
   imports: [
     BrowserModule,

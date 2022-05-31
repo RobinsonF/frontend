@@ -22,4 +22,13 @@ export class ApiService {
     let direccion = this.url + "usuario/listaUsuario";
     return this.http.get<listaUsuariosInterface[]>(direccion);
   }
+
+  eliminarUsuario(id:listaUsuariosInterface):Observable<responseInterface>{
+    let datos: any = []
+    datos.id_usuario = id;
+    console.log(datos);
+    console.log(id);
+    let direccion = this.url + "usuario/eliminarUsuario/" + id;
+    return this.http.post<responseInterface>(direccion, datos);
+  }
 }
