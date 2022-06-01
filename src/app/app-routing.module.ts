@@ -6,6 +6,7 @@ import { NuevoComponent } from './vistas/nuevo/nuevo.component';
 import { EditarComponent } from './vistas/editar/editar.component';
 import { DashboardComponent } from './vistas/dashboard/dashboard.component';
 import { UsuariosComponent } from './vistas/usuarios/usuarios.component';
+import { RegistroComponent } from './vistas/registro/registro.component';
 
 const routes: Routes = [
     {path: '', redirectTo:'login',pathMatch:'full'},
@@ -13,7 +14,8 @@ const routes: Routes = [
     {path:'nuevo', component:NuevoComponent},
     {path:'editar/:id', component:EditarComponent},
     {path:'dashboard', component:DashboardComponent},
-    {path:'usuarios', component:UsuariosComponent}
+    {path:'usuarios', component:UsuariosComponent},
+    {path: 'registro', component:RegistroComponent}
 ];
 
 @NgModule({
@@ -21,4 +23,4 @@ const routes: Routes = [
     exports: [RouterModule]
 })
 export class AppRoutingModule { }
-export const routingComponents = [LoginComponent, DashboardComponent, NuevoComponent, EditarComponent]
+export const routingComponents = [LoginComponent, DashboardComponent, NuevoComponent, EditarComponent, UsuariosComponent, RegistroComponent]

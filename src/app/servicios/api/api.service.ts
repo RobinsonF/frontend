@@ -1,6 +1,8 @@
 import { Injectable } from '@angular/core';
 import {loginInterface} from 'src/app/modelos/login.interface';
 import { listaUsuariosInterface } from 'src/app/modelos/listaUsuarios.interface';
+import { usuarioInterface } from 'src/app/modelos/registro.interface';
+import { eliminarUsuarioInterface } from 'src/app/modelos/eliminarUsuario.interface';
 import { responseInterface } from 'src/app/modelos/response.interface';
 import {HttpClient, HttpHeaders} from '@angular/common/http';
 import { Observable } from 'rxjs';
@@ -23,12 +25,13 @@ export class ApiService {
     return this.http.get<listaUsuariosInterface[]>(direccion);
   }
 
-  eliminarUsuario(id:listaUsuariosInterface):Observable<responseInterface>{
-    let datos: any = []
-    datos.id_usuario = id;
-    console.log(datos);
-    console.log(id);
-    let direccion = this.url + "usuario/eliminarUsuario/" + id;
-    return this.http.post<responseInterface>(direccion, datos);
+  eliminarUsuario(form:eliminarUsuarioInterface):Observable<responseInterface>{
+    let direccion = this.url + "usuario/eliminarUsuario?id=" + form.id_usuario;
+    return this.http.put<responseInterface>(direccion, form);
+  }
+
+  registrarUsuario(form:usuarioInterface):Observable<usuarioInterface>{
+    let direccion = this.url + "usuario/crearUsuario";
+    return this.http.post<usuarioInterface>(direccion, form);
   }
 }

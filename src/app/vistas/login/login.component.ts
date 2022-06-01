@@ -24,7 +24,7 @@ export class LoginComponent implements OnInit {
   errorMsj:any = "";
 
   ngOnInit(): void {
-    this.revisarToken();
+    //this.revisarToken();
   }
 
   revisarToken(){

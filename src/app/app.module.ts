@@ -9,7 +9,8 @@ import { AppRoutingModule } from './app-routing.module';
 import {ReactiveFormsModule, FormsModule} from '@angular/forms'
 import {HttpClientModule} from '@angular/common/http';
 import { MenuComponent } from './plantillas/menu/menu.component';
-import { UsuariosComponent } from './vistas/usuarios/usuarios.component'
+import { UsuariosComponent } from './vistas/usuarios/usuarios.component';
+import { RegistroComponent } from './vistas/registro/registro.component'
 
 @NgModule({
   declarations: [
@@ -18,7 +19,8 @@ import { UsuariosComponent } from './vistas/usuarios/usuarios.component'
     FooterComponent,
     routingComponents,
     MenuComponent,
-    UsuariosComponent
+    UsuariosComponent,
+    RegistroComponent
   ],
   imports: [
     BrowserModule,
