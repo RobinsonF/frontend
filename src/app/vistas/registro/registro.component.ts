@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
 import { ApiService } from 'src/app/servicios/api/api.service';
 import { usuarioInterface } from 'src/app/modelos/registro.interface';
+import { correoInterface } from 'src/app/modelos/correo.interface';
 import { Router } from '@angular/router';
 import { responseInterface } from 'src/app/modelos/response.interface';
 
@@ -22,6 +23,7 @@ export class RegistroComponent implements OnInit {
     password2: new FormControl('', Validators.required),
     id_rol: new FormControl('')
   })
+  correo:correoInterface;
 
   constructor(private api:ApiService, private router:Router) { }
 
@@ -40,9 +42,18 @@ export class RegistroComponent implements OnInit {
       this.errorMsj = "Las contraseñas no coinciden";
       console.log(form);
     }else{
+      let info:any = [];
+      info.subject = "Bienvenido a NFS";
+      info.to = form.correo;
+      info.from = "";
+      info.text = "Url = http://localhost:4200/login\nLogin = " + form.login + "\nContraseña = " + form.password;
+      this.correo = info;
+      console.log(this.correo);
       this.error = false;
       this.errorMsj = "";
       this.api.registrarUsuario(form).subscribe(data=>{
+        this.api.enviarCorreo(this.correo).subscribe(data1 =>{ 
+        });
         alert('Usuario registrado correctamente');
         this.router.navigate(['login']);
       });

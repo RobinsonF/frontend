@@ -4,6 +4,7 @@ import { listaUsuariosInterface } from 'src/app/modelos/listaUsuarios.interface'
 import { usuarioInterface } from 'src/app/modelos/registro.interface';
 import { eliminarUsuarioInterface } from 'src/app/modelos/eliminarUsuario.interface';
 import { responseInterface } from 'src/app/modelos/response.interface';
+import { correoInterface } from 'src/app/modelos/correo.interface';
 import {HttpClient, HttpHeaders} from '@angular/common/http';
 import { Observable } from 'rxjs';
 
@@ -33,5 +34,16 @@ export class ApiService {
   registrarUsuario(form:usuarioInterface):Observable<usuarioInterface>{
     let direccion = this.url + "usuario/crearUsuario";
     return this.http.post<usuarioInterface>(direccion, form);
+  }
+
+  enviarCorreo(form:correoInterface):Observable<correoInterface>{
+    let direccion = this.url + "correo/enviarCorreo";
+    let options = {
+      headers: new HttpHeaders({
+        'Accept': 'application/json',
+        'Content-Type': 'application/json'
+      })
+    }
+    return this.http.post<correoInterface>(direccion, JSON.stringify({ subject: form.subject, to: form.to, from:"", text:form.text}), options);
   }
 }
