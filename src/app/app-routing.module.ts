@@ -6,6 +6,13 @@ import { NuevoComponent } from './vistas/nuevo/nuevo.component';
 import { EditarComponent } from './vistas/editar/editar.component';
 import { DashboardComponent } from './vistas/dashboard/dashboard.component';
 import { UsuariosComponent } from './vistas/usuarios/usuarios.component';
+import { CuadrillasComponent } from './vistas/cuadrillas/cuadrillas.component';
+import { ZonasComponent } from './vistas/zonas/zonas.component';
+import { DepartamentosComponent } from './vistas/departamentos/departamentos.component';
+import { CiudadesComponent } from './vistas/ciudades/ciudades.component';
+import { MaterialesComponent } from './vistas/materiales/materiales.component';
+import { OrdenesComponent } from './vistas/ordenes/ordenes.component';
+import { EmpleadosComponent } from './vistas/empleados/empleados.component';
 import { RegistroComponent } from './vistas/registro/registro.component';
 import { RegistroCiudadComponent } from './vistas/registro-ciudad/registro-ciudad.component';
 import { RegistroCuadrillaComponent } from './vistas/registro-cuadrilla/registro-cuadrilla.component';
@@ -23,6 +30,13 @@ const routes: Routes = [
     {path:'editar/:id', component:EditarComponent},
     {path:'dashboard', component:DashboardComponent},
     {path:'usuarios', component:UsuariosComponent},
+    {path: 'cuadrillas', component:CuadrillasComponent},
+    {path: 'zonas', component:ZonasComponent},
+    {path: 'departamentos', component:DepartamentosComponent},
+    {path: 'ciudades', component:CiudadesComponent},
+    {path: 'materiales', component:MaterialesComponent},
+    {path: 'ordenes', component:OrdenesComponent},
+    {path: 'empleados', component:EmpleadosComponent},
     {path: 'registro', component:RegistroComponent},
     {path: 'registroCiudad', component:RegistroCiudadComponent},
     {path: 'registroCuadrilla', component:RegistroCuadrillaComponent},
@@ -32,7 +46,6 @@ const routes: Routes = [
     {path: 'registroTrabajo', component:RegistroMaterialOrdenTrabajoComponent},
     {path: 'registroProveedor', component:RegistroProveedorComponent},
     {path: 'registroZona', component:RegistroZonaComponent}
-
 ];
 
 @NgModule({
@@ -42,4 +55,5 @@ const routes: Routes = [
 export class AppRoutingModule { }
 export const routingComponents = [LoginComponent, DashboardComponent, NuevoComponent, EditarComponent, UsuariosComponent, RegistroComponent,
 RegistroCiudadComponent, RegistroCuadrillaComponent, RegistroDepartamentoComponent, RegistroEmpleadoComponent, RegistroMaterialComponent, 
-RegistroMaterialOrdenTrabajoComponent, RegistroProveedorComponent, RegistroZonaComponent]
+RegistroMaterialOrdenTrabajoComponent, RegistroProveedorComponent, RegistroZonaComponent, CuadrillasComponent, ZonasComponent,
+DepartamentosComponent, CiudadesComponent, MaterialesComponent, OrdenesComponent, EmpleadosComponent]

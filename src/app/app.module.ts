@@ -18,7 +18,14 @@ import { RegistroDepartamentoComponent } from './vistas/registro-departamento/re
 import { RegistroCiudadComponent } from './vistas/registro-ciudad/registro-ciudad.component';
 import { RegistroMaterialComponent } from './vistas/registro-material/registro-material.component';
 import { RegistroMaterialOrdenTrabajoComponent } from './vistas/registro-material-orden-trabajo/registro-material-orden-trabajo.component';
-import { RegistroEmpleadoComponent } from './vistas/registro-empleado/registro-empleado.component'
+import { RegistroEmpleadoComponent } from './vistas/registro-empleado/registro-empleado.component';
+import { CuadrillasComponent } from './vistas/cuadrillas/cuadrillas.component';
+import { ZonasComponent } from './vistas/zonas/zonas.component';
+import { DepartamentosComponent } from './vistas/departamentos/departamentos.component';
+import { CiudadesComponent } from './vistas/ciudades/ciudades.component';
+import { MaterialesComponent } from './vistas/materiales/materiales.component';
+import { OrdenesComponent } from './vistas/ordenes/ordenes.component';
+import { EmpleadosComponent } from './vistas/empleados/empleados.component'
 
 @NgModule({
   declarations: [
@@ -36,7 +43,14 @@ import { RegistroEmpleadoComponent } from './vistas/registro-empleado/registro-e
     RegistroCiudadComponent,
     RegistroMaterialComponent,
     RegistroMaterialOrdenTrabajoComponent,
-    RegistroEmpleadoComponent
+    RegistroEmpleadoComponent,
+    CuadrillasComponent,
+    ZonasComponent,
+    DepartamentosComponent,
+    CiudadesComponent,
+    MaterialesComponent,
+    OrdenesComponent,
+    EmpleadosComponent
   ],
   imports: [
     BrowserModule,
