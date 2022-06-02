@@ -1,0 +1,70 @@
+<div id="wrapper">
+    <app-menu></app-menu>
+    <div id="content-wrapper" class="d-flex flex-column">
+        <div id="content">
+            <app-header></app-header>
+            <div class="container-fluid">
+
+                <!-- Page Heading -->
+                <h1 class="h3 mb-4 text-gray-800">Registro de zonas</h1>
+
+                <div class="container">
+
+                    <div class="card o-hidden border-0 shadow-lg my-5">
+                        <div class="card-body p-0">
+                            <!-- Nested Row within Card Body -->
+                            <div class="row">
+                                <div class="image">
+                                    <img src="assets/img/zona.png" width="310" height="310" style="float: left;margin-left:55px; float: top; margin-top:35px" alt="">
+                                </div>
+                                <div class="col-lg-7">
+                                    <div class="p-5">
+                                        <form class="user">
+                                            <div class="form-group row">
+                                                <div class="col-sm-6 mb-3 mb-sm-0">
+                                                    <input type="text" class="form-control form-control-user" id="txtNombre" required
+                                                           placeholder="Nombre de la Zona">
+                                                </div>
+                                                <div style=" float: end;margin-block-end: 20px; float: top;margin-top: 20PX; float: left; margin-left: 20px; width: 300px;">
+                                                    <select id="ciudad">
+                                                        <option></option>
+                                                    </select>
+                                                </div>
+
+                                                <div class="col-sm-6 mb-3 mb-sm-0">
+                                                    <input type="text" class="form-control form-control-user" id="txtNorte" required
+                                                           placeholder="Limite norte">
+                                                </div>
+                                                <div class="col-sm-6 mb-3 mb-sm-0">
+                                                    <input type="text" class="form-control form-control-user" id="txtSur" required
+                                                           placeholder="Limite sur">
+                                                </div>
+                                                <div class="col-sm-6 mb-3 mb-sm-0">
+                                                    <input type="text" class="form-control form-control-user" id="txtOriente" required
+                                                           placeholder="Limite oriente">
+                                                </div>
+                                                <div class="col-sm-6 mb-3 mb-sm-0">
+                                                    <input type="text" class="form-control form-control-user" id="txtOccidente" required
+                                                           placeholder="Limite occidente">
+                                                </div>
+
+                                            </div>
+                                            <a type="button"  onclick="registrarZonas()" href="#" class="btn btn-primary btn-user btn-block" style="float:top;margin-top: 20px">
+                                                Registrar
+                                            </a>
+
+                                        </form>
+                                        <hr>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+
+            </div>
+        </div>
+        <app-footer></app-footer>
+    </div>
+</div>

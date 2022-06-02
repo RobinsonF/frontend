@@ -1,0 +1,60 @@
+<div id="wrapper">
+    <app-menu></app-menu>
+    <div id="content-wrapper" class="d-flex flex-column">
+        <div id="content">
+            <app-header></app-header>
+            <div class="container-fluid">
+
+                <!-- Page Heading -->
+                <h1 class="h3 mb-4 text-gray-800">Registro de empleados</h1>
+
+                <div class="container">
+
+                    <div class="card o-hidden border-0 shadow-lg my-5">
+                        <div class="card-body p-0">
+                            <!-- Nested Row within Card Body -->
+                            <div class="row">
+                                <div class="image">
+                                    <img src="assets/img/empleado.png" width="280" height="280" style="float: left;margin-left:55px; float: top; margin-top:35px" alt="">
+                                </div>
+                                <div class="col-lg-7">
+                                    <div class="p-5">
+                                        <form class="user">
+                                            <div class="form-group row">
+                                                <div class="col-sm-6 mb-3 mb-sm-0">
+                                                    <input type="text" class="form-control form-control-user" id="txtNombre" required
+                                                           placeholder="Nombre del empleado">
+                                                </div>
+                                                <div class="col-sm-6 mb-3 mb-sm-0">
+                                                    <input type="text" class="form-control form-control-user" id="txtApellido" required
+                                                           placeholder="Apellido del empleado">
+                                                </div>
+                                                <div class="col-sm-6 mb-3 mb-sm-0">
+                                                    <input type="text" class="form-control form-control-user" id="txtCedula" required
+                                                           placeholder="Cédula del empleado">
+                                                </div>
+                                                <div style="float: top;margin-top: 30px; float: left; margin-left: 20px; width: 300px;">
+                                                    <select id="cuadrilla">
+                                                        <option></option>
+                                                    </select>
+                                                </div>
+                                            </div>
+                                            <a type="button"  onclick="registrarEmpleado()" href="#" class="btn btn-primary btn-user btn-block" style="float:top;margin-top: 20px">
+                                                Registrar
+                                            </a>
+
+                                        </form>
+                                        <hr>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+
+            </div>
+        </div>
+        <app-footer></app-footer>
+    </div>
+</div>
