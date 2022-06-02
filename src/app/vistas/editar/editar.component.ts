@@ -15,12 +15,15 @@ export class EditarComponent implements OnInit {
   constructor(private activerouter:ActivatedRoute, private router:Router, private api:ApiService) { }
 
   datosUsuario:listaUsuariosInterface;
+  error:boolean = false;
+  errorMsj:any = "";
+
   editarForm = new FormGroup({
-    login: new FormControl(''),
-    nombre: new FormControl(''),
-    direccion: new FormControl(''),
-    telefono: new FormControl(''),
-    correo: new FormControl(''),
+    login: new FormControl('',Validators.required),
+    nombre: new FormControl('',Validators.required),
+    direccion: new FormControl('', Validators.required),
+    telefono: new FormControl('',[Validators.pattern(/^[0-9,$]*$/), Validators.required]),
+    correo: new FormControl('',[Validators.required, Validators.pattern(/^(([^<>()[\]\.,;:\s@\"]+(\.[^<>()[\]\.,;:\s@\"]+)*)|(\".+\"))@(([^<>()[\]\.,;:\s@\"]+\.)+[^<>()[\]\.,;:\s@\"]{2,})$/)]),
     id_usuario: new FormControl('')
   });
 
@@ -40,9 +43,14 @@ export class EditarComponent implements OnInit {
   }
 
   editarUsuario(form:listaUsuariosInterface){
-    this.api.editarUsuario(form).subscribe(data=>{
-    })
-    alert('Guardado Correctamente');
+    if(this.editarForm.invalid){
+      this.error = true;
+      this.errorMsj = "Revise los campos"
+    }else{
+      this.api.editarUsuario(form).subscribe(data=>{
+      })
+      alert('Guardado Correctamente');
+    }
   }
 
 }

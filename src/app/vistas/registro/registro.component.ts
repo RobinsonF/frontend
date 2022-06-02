@@ -17,8 +17,8 @@ export class RegistroComponent implements OnInit {
     login: new FormControl('', [Validators.required,Validators.maxLength(8)]),
     nombre: new FormControl('', Validators.required),
     direccion: new FormControl('', Validators.required),
-    telefono: new FormControl('', [Validators.required, Validators.maxLength(10)]),
-    correo: new FormControl('', [Validators.required,Validators.email]),
+    telefono: new FormControl('', [Validators.required, Validators.pattern(/^[0-9,$]*$/)]),
+    correo: new FormControl('', [Validators.required,Validators.pattern(/^(([^<>()[\]\.,;:\s@\"]+(\.[^<>()[\]\.,;:\s@\"]+)*)|(\".+\"))@(([^<>()[\]\.,;:\s@\"]+\.)+[^<>()[\]\.,;:\s@\"]{2,})$/)]),
     password: new FormControl('', [Validators.required,Validators.pattern(/^(?=\w*\d)(?=\w*[A-Z])(?=\w*[a-z])\S{0,9}$/)]),
     password2: new FormControl('', [Validators.required,Validators.pattern(/^(?=\w*\d)(?=\w*[A-Z])(?=\w*[a-z])\S{0,9}$/)]),
     id_rol: new FormControl('')

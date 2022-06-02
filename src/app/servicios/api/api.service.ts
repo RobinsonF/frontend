@@ -5,6 +5,7 @@ import { usuarioInterface } from 'src/app/modelos/registro.interface';
 import { eliminarUsuarioInterface } from 'src/app/modelos/eliminarUsuario.interface';
 import { responseInterface } from 'src/app/modelos/response.interface';
 import { correoInterface } from 'src/app/modelos/correo.interface';
+import { parametoInterface} from 'src/app/modelos/parametro.interface';
 import {HttpClient, HttpHeaders} from '@angular/common/http';
 import { Observable } from 'rxjs';
 
@@ -106,5 +107,10 @@ export class ApiService {
       })
     }
     return this.http.put<string>(direccion, form, options);
+  }
+
+  obtenerParametro():Observable<parametoInterface>{
+  let direccion = this.url + "parametro/Intento?tipo=I";
+  return this.http.get<parametoInterface>(direccion);
   }
 }

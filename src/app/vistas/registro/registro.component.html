@@ -28,14 +28,17 @@
                                         formControlName="direccion" placeholder="direccion">
                                 </div>
                                 <div class="col-sm-6">
-                                    <input maxlength="10" type="number" class="form-control form-control-user" id="txtTelefono" ngModel required
+                                    <input maxlength="10" type="text" class="form-control form-control-user" id="txtTelefono" ngModel required
                                         formControlName="telefono"  placeholder="telefono">
+                                        <span *ngIf="registroForm.get('telefono')?.errors?.['pattern']">
+                                            (Sólo se aceptan números)
+                                        </span>
                                 </div>
                             </div>
                             <div class="form-group">
                                 <input type="email" class="form-control form-control-user" id="txtEmail" ngModel required
                                     formControlName="correo" placeholder="Correo">
-                                    <span *ngIf="registroForm.get('correo')?.errors?.['email']">
+                                    <span *ngIf="registroForm.get('correo')?.errors?.['pattern']">
                                         (Correo no valido)
                                     </span>
                             </div>
