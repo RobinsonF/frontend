@@ -90,4 +90,21 @@ export class ApiService {
     }
     return this.http.post<string>(direccion, JSON.stringify({id_usuario:form.id_usuario}), options);
   }
+
+  obtenerUsuario(id:any):Observable<listaUsuariosInterface>{
+    let direccion = this.url + "usuario/obtenerUsuario?id=" +id;
+    return this.http.get<listaUsuariosInterface>(direccion);
+  }
+
+  editarUsuario(form:listaUsuariosInterface):Observable<string>{
+    let direccion = this.url + "usuario/editarUsuario";
+    console.log(form);
+    let options = {
+      headers: new HttpHeaders({
+        'Accept': 'application/json',
+        'Content-Type': 'application/json'
+      })
+    }
+    return this.http.put<string>(direccion, form, options);
+  }
 }
