@@ -46,4 +46,48 @@ export class ApiService {
     }
     return this.http.post<correoInterface>(direccion, JSON.stringify({ subject: form.subject, to: form.to, from:"", text:form.text}), options);
   }
+
+  aumentarIntento(form:any):Observable<string>{
+    let direccion = this.url + "login/usuarioIntento/"+form.correo;
+    let options = {
+      headers: new HttpHeaders({
+        'Accept': 'application/json',
+        'Content-Type': 'application/json'
+      })
+    }
+    return this.http.post<string>(direccion, JSON.stringify({correo:form.correo}), options);
+  }
+
+  obtenerIntentos(form:any):Observable<string>{
+    let direccion = this.url + "login/usuarioNumeroIntentos/" + form.correo;
+    let options = {
+      headers: new HttpHeaders({
+        'Accept': 'application/json',
+        'Content-Type': 'application/json'
+      })
+    }
+    return this.http.post<string>(direccion, JSON.stringify({correo:form.correo}), options);
+  }
+
+  setearIntentoCero(form:any):Observable<string>{
+    let direccion = this.url + "login/usuarioCeroIntentos/" + form.correo;
+    let options = {
+      headers: new HttpHeaders({
+        'Accept': 'application/json',
+        'Content-Type': 'application/json'
+      })
+    }
+    return this.http.post<string>(direccion, JSON.stringify({correo:form.correo}), options);
+  }
+
+  desbloquearUsuario(form:any):Observable<string>{
+    let direccion = this.url + "usuario/desbloquearUsuario/" + form.id_usuario;
+    let options = {
+      headers: new HttpHeaders({
+        'Accept': 'application/json',
+        'Content-Type': 'application/json'
+      })
+    }
+    return this.http.post<string>(direccion, JSON.stringify({id_usuario:form.id_usuario}), options);
+  }
 }

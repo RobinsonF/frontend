@@ -15,18 +15,21 @@
                                 <div class="text-center">
                                     <h1 class="h4 text-gray-900 mb-4">¡Bienvenido!</h1>
                                 </div>
-                                <form [formGroup]="loginForm" (ngSubmit)="onLogin(loginForm.value)" class="user">
+                                <form [formGroup]="loginForm" (ngSubmit)="onLogin(loginForm.value)" #f="ngForm" class="user">
                                     <div class="form-group">
-                                        <input type="email" class="form-control form-control-user" formControlName="correo" required="Campo requerido"
+                                        <input type="email" class="form-control form-control-user" formControlName="correo" ngModel required
                                                id="txtCorreo" aria-describedby="emailHelp"
                                                placeholder="Ingresa tu Correo">
                                     </div>
+                                    <div class="alert alert-danger" *ngIf="error2">
+                                        <p>{{errorMsj}}</p>
+                                    </div>
                                     <div class="form-group">
-                                        <input type="password" class="form-control form-control-user" formControlName="password" required="Campo requerdio"
+                                        <input type="password" class="form-control form-control-user" formControlName="password" ngModel required
                                                id="txtPassword23" placeholder="Password">
                                     </div>
     
-                                    <button type="submit" class="btn btn-primary btn-user btn-block">Registrar</button>
+                                    <button type="submit" class="btn btn-primary btn-user btn-block">Iniciar</button>
     
                                 </form>
                                 <hr>

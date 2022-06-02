@@ -33,7 +33,7 @@
                                     <th>{{usuario.correo}}</th>
                                     <th (click)="editarUsuario(usuario.id_usuario)"><img src="assets/img/editar.png" width="30" height="30" style="float: left;margin-left: 15px" alt=""></th>
                                     <th (click)="eliminarUsuario(usuario.id_usuario)"><img src="assets/img/eliminar.png" width="30" height="30" style="float: left;margin-left: 15px" alt=""></th>
-                                    <th (click)="desbloquearUsuario(usuario.id_usuario)"><img src="assets/img/desbloquear.png" width="30" height="30" style="float: left;margin-left: 15px" alt=""></th>
+                                    <th (click)="desbloquearUsuario(usuario.id_usuario, usuario.correo)"><img src="assets/img/desbloquear.png" width="30" height="30" style="float: left;margin-left: 15px" alt=""></th>
                                 </tr>
                             </tbody>
                         </table>

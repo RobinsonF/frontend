@@ -41,7 +41,21 @@ export class UsuariosComponent implements OnInit {
       });
     }
   }
-  desbloquearUsuario(id:string){
-
+  desbloquearUsuario(id:string, correo:string){
+    let datos:any = [];
+    datos.id_usuario = id;
+    datos.correo = correo;
+    this.api.obtenerIntentos(datos).subscribe(data=>{
+      if(Number(data)<3){
+        alert("Este usuario no se encuentra bloqueado");
+      }else{
+        if(!confirm('¿Desea desbloquear este usuario?')){
+          return;
+        }else{
+          this.api.desbloquearUsuario(datos).subscribe(data=>{
+          });
+        }
+      }
+    });
   }
 }

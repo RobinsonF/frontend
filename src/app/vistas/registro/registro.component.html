@@ -12,47 +12,59 @@
                         <div class="text-center">
                             <h1 class="h4 text-gray-900 mb-4">Registrarse</h1>
                         </div>
-                        <form class="user" [formGroup]="registroForm" (ngSubmit)="registrarUsuario(registroForm.value)">
+                        <form class="user" [formGroup]="registroForm" (ngSubmit)="registrarUsuario(registroForm.value)" #f="ngForm" novalidate>
                             <div class="form-group row">
                                 <div class="col-sm-6 mb-3 mb-sm-0">
-                                    <input maxlength="8" minlength="4" type="text" class="form-control form-control-user" id="txtlogin" required="" 
+                                    <input maxlength="8" minlength="4" type="text" class="form-control form-control-user" [class.is-danger]="registroForm.get('login')?.dirty && registroForm.get('login')?.invalid"
                                         formControlName="login" placeholder="login">
                                 </div>
+                                
                                 <div class="col-sm-6 mb-3 mb-sm-0">
-                                    <input type="text" class="form-control form-control-user" id="txtNombre" required=""
+                                    <input type="text" class="form-control form-control-user" id="txtNombre" ngModel required
                                         formControlName="nombre" placeholder="Nombre">
                                 </div>
                                 <div class="col-sm-6">
-                                    <input type="text" class="form-control form-control-user" id="txtDireccion" required=""
+                                    <input type="text" class="form-control form-control-user" id="txtDireccion" ngModel required
                                         formControlName="direccion" placeholder="direccion">
                                 </div>
                                 <div class="col-sm-6">
-                                    <input maxlength="10" type="number" class="form-control form-control-user" id="txtTelefono" required=""
+                                    <input maxlength="10" type="number" class="form-control form-control-user" id="txtTelefono" ngModel required
                                         formControlName="telefono"  placeholder="telefono">
                                 </div>
                             </div>
                             <div class="form-group">
-                                <input type="email" class="form-control form-control-user" id="txtEmail" required=""
+                                <input type="email" class="form-control form-control-user" id="txtEmail" ngModel required
                                     formControlName="correo" placeholder="Correo">
+                                    <span *ngIf="registroForm.get('correo')?.errors?.['email']">
+                                        (Correo no valido)
+                                    </span>
+                            </div>
+                            <div class="alert alert-danger" *ngIf="errorCorreo">
+                                <p>{{errorMensaje}}</p>
                             </div>
                             <div class="form-group row">
                                 <div class="col-sm-6 mb-3 mb-sm-0">
-                                    <input maxlength="8" minlength="4" type="password" class="form-control form-control-user" required=""
+                                    <input maxlength="8" minlength="4" type="password" class="form-control form-control-user" ngModel required
                                         formControlName="password" id="txtPassword" placeholder="Password">
+                                        <span *ngIf="registroForm.get('password')?.errors?.['pattern']">
+                                            (La contraseña debe contar con minimo una letra mayuscula y miniscula, y un número)
+                                        </span>
                                 </div>
                                 <div class="col-sm-6">
-                                    <input maxlength="8" minlength="4" type="password" class="form-control form-control-user" required=""
+                                    <input maxlength="8" minlength="4" type="password" class="form-control form-control-user" ngModel required
                                         formControlName="password2" id="txtRepetirPassword" placeholder="Repeat Password">
+                                        <span *ngIf="registroForm.get('password2')?.errors?.['pattern']">
+                                            (La contraseña debe contar con minimo una letra mayuscula y miniscula, y un número)
+                                        </span>
                                 </div>
                             </div>
 
                             <button class="btn btn-primary btn-user btn-block">Registrarse</button>
-                
+                            <div class="alert alert-danger" *ngIf="errorForm">
+                                <p>{{errorMensaje}}</p>
+                            </div>
                            </form>
                         <hr>
-                        <div class="alert alert-danger" *ngIf="error">
-                            <p>{{errorMsj}}</p>
-                        </div>
                         <div class="text-center">
                             <a class="small" href="login">¿Ya tienes una cuenta? ¡Inicia sesión!</a>
                         </div>

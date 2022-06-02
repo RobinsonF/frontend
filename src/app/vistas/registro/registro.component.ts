@@ -14,21 +14,22 @@ import { responseInterface } from 'src/app/modelos/response.interface';
 export class RegistroComponent implements OnInit {
 
   registroForm = new FormGroup({
-    login: new FormControl('', Validators.required),
+    login: new FormControl('', [Validators.required,Validators.maxLength(8)]),
     nombre: new FormControl('', Validators.required),
     direccion: new FormControl('', Validators.required),
-    telefono: new FormControl('', Validators.required),
-    correo: new FormControl('', Validators.required),
-    password: new FormControl('', Validators.required),
-    password2: new FormControl('', Validators.required),
+    telefono: new FormControl('', [Validators.required, Validators.maxLength(10)]),
+    correo: new FormControl('', [Validators.required,Validators.email]),
+    password: new FormControl('', [Validators.required,Validators.pattern(/^(?=\w*\d)(?=\w*[A-Z])(?=\w*[a-z])\S{0,9}$/)]),
+    password2: new FormControl('', [Validators.required,Validators.pattern(/^(?=\w*\d)(?=\w*[A-Z])(?=\w*[a-z])\S{0,9}$/)]),
     id_rol: new FormControl('')
   })
   correo:correoInterface;
 
   constructor(private api:ApiService, private router:Router) { }
 
-  error:boolean = false;
-  errorMsj:any = "";
+  errorForm:boolean = false;
+  errorCorreo:boolean = false;
+  errorMensaje:any = "";
 
   ngOnInit(): void {
     this.registroForm.patchValue({
@@ -37,27 +38,28 @@ export class RegistroComponent implements OnInit {
   }
 
   registrarUsuario(form:usuarioInterface){
-    if(form.password != form.password2){
-      this.error = true;
-      this.errorMsj = "Las contraseñas no coinciden";
-      console.log(form);
+    if(this.registroForm.invalid){
+      this.errorForm = true;
+        this.errorMensaje = "Complete los campos";
+        console.log("entra");
     }else{
-      let info:any = [];
-      info.subject = "Bienvenido a NFS";
-      info.to = form.correo;
-      info.from = "";
-      info.text = "Url = http://localhost:4200/login\nLogin = " + form.login + "\nContraseña = " + form.password;
-      this.correo = info;
-      console.log(this.correo);
-      this.error = false;
-      this.errorMsj = "";
-      this.api.registrarUsuario(form).subscribe(data=>{
+        if(form.password != form.password2){
+        this.errorForm = true;
+        this.errorMensaje = "Las contraseñas no coinciden";
+        }else{
+        let info:any = [];
+        info.subject = "Bienvenido a NFS";
+        info.to = form.correo;
+        info.from = "";
+        info.text = "Url = http://localhost:4200/login\nLogin = " + form.login + "\nContraseña = " + form.password;
+        this.correo = info;
+        this.api.registrarUsuario(form).subscribe(data=>{
         this.api.enviarCorreo(this.correo).subscribe(data1 =>{ 
         });
         alert('Usuario registrado correctamente');
         this.router.navigate(['login']);
-      });
+        });
+        }
+    }
     }
   }
-
-}
