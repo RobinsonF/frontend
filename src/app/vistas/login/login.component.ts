@@ -41,28 +41,31 @@ export class LoginComponent implements OnInit {
     if(this.loginForm.invalid){
       this.error = true;
       this.errorMsj = "Revise los campos";
+     
     }else{
+      this.api.obtenerParametro().subscribe(data4=>{
         this.api.obtenerIntentos(form).subscribe(data1=>{ 
-            if(Number(data1)>3){
-              this.error = true;
-              this.errorMsj = "La cuenta se encuentra bloqueada";
-            }else{
-              this.api.loginByEmail(form).subscribe(data=>{
-                let dataRenponse:responseInterface = data;
-                if(dataRenponse.estado!='FAIL'){
-                  localStorage.setItem("token",dataRenponse.estado);
-                  this.api.setearIntentoCero(form).subscribe(data2=>{
-                  });
-                  this.router.navigate(['dashboard']);
-                }else{
-                  this.error = true;
-                  this.errorMsj = "Credenciales incorrectas";
-                  this.api.aumentarIntento(form).subscribe(data1=>{
-                  });
-                }
-              });
-            }
-          });
+          if(Number(data1)>=Number(data4.valor_int)){
+            this.error = true;
+            this.errorMsj = "La cuenta se encuentra bloqueada";
+          }else{
+            this.api.loginByEmail(form).subscribe(data=>{
+              let dataRenponse:responseInterface = data;
+              if(dataRenponse.estado!='FAIL'){
+                localStorage.setItem("token",dataRenponse.estado);
+                this.api.setearIntentoCero(form).subscribe(data2=>{
+                });
+                this.router.navigate(['dashboard']);
+              }else{
+                this.error = true;
+                this.errorMsj = "Credenciales incorrectas";
+                this.api.aumentarIntento(form).subscribe(data1=>{
+                });
+              }
+            });
+          }
+        });
+      });
     }
   }
 }
