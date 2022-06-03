@@ -54,10 +54,18 @@ export class RegistroComponent implements OnInit {
         info.text = "Url = http://localhost:4200/login\nLogin = " + form.login + "\nContraseña = " + form.password;
         this.correo = info;
         this.api.registrarUsuario(form).subscribe(data=>{
-        this.api.enviarCorreo(this.correo).subscribe(data1 =>{ 
-        });
-        alert('Usuario registrado correctamente');
-        this.router.navigate(['login']);
+        if(data.mensaje=="El correo ya se encuentra registrado"){
+          this.errorForm = true;
+          this.errorMensaje = data.mensaje;
+        }else if (data.mensaje=="El login ya se encuentra registrado"){
+          this.errorForm = true;
+          this.errorMensaje = data.mensaje;
+        }else{
+          this.api.enviarCorreo(this.correo).subscribe(data1 =>{ 
+          });
+          alert(data.mensaje);
+          this.router.navigate(['login']);
+        }
         });
         }
     }

@@ -28,6 +28,10 @@ export class UsuariosComponent implements OnInit {
     this.router.navigate(['editar', id]);
   }
 
+  trazabilidadUsuario(id:any){
+    this.router.navigate(['trazabilidad', id]);
+  }
+
   eliminarUsuario(id:string){
     if (!confirm('¿Desea eliminar este usuario?')) {
       return;

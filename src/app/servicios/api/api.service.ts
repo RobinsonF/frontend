@@ -5,6 +5,7 @@ import { usuarioInterface } from 'src/app/modelos/registro.interface';
 import { eliminarUsuarioInterface } from 'src/app/modelos/eliminarUsuario.interface';
 import { responseInterface } from 'src/app/modelos/response.interface';
 import { correoInterface } from 'src/app/modelos/correo.interface';
+import { auditoriaInterface } from 'src/app/modelos/auditoria.interface';
 import { parametoInterface} from 'src/app/modelos/parametro.interface';
 import {HttpClient, HttpHeaders} from '@angular/common/http';
 import { Observable } from 'rxjs';
@@ -27,14 +28,19 @@ export class ApiService {
     return this.http.get<listaUsuariosInterface[]>(direccion);
   }
 
+  obtenerAuditorias(id:any):Observable<auditoriaInterface[]>{
+    let direccion = this.url + "auditoria/listaAuditoria?id=" + id;
+    return this.http.get<auditoriaInterface[]>(direccion);
+  }
+
   eliminarUsuario(form:eliminarUsuarioInterface):Observable<responseInterface>{
     let direccion = this.url + "usuario/eliminarUsuario?id=" + form.id_usuario;
     return this.http.put<responseInterface>(direccion, form);
   }
 
-  registrarUsuario(form:usuarioInterface):Observable<usuarioInterface>{
+  registrarUsuario(form:usuarioInterface):Observable<responseInterface>{
     let direccion = this.url + "usuario/crearUsuario";
-    return this.http.post<usuarioInterface>(direccion, form);
+    return this.http.post<responseInterface>(direccion, form);
   }
 
   enviarCorreo(form:correoInterface):Observable<correoInterface>{
@@ -97,7 +103,7 @@ export class ApiService {
     return this.http.get<listaUsuariosInterface>(direccion);
   }
 
-  editarUsuario(form:listaUsuariosInterface):Observable<string>{
+  editarUsuario(form:listaUsuariosInterface):Observable<responseInterface>{
     let direccion = this.url + "usuario/editarUsuario";
     console.log(form);
     let options = {
@@ -106,7 +112,7 @@ export class ApiService {
         'Content-Type': 'application/json'
       })
     }
-    return this.http.put<string>(direccion, form, options);
+    return this.http.put<responseInterface>(direccion, form, options);
   }
 
   obtenerParametro():Observable<parametoInterface>{

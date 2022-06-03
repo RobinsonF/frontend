@@ -25,7 +25,8 @@ import { DepartamentosComponent } from './vistas/departamentos/departamentos.com
 import { CiudadesComponent } from './vistas/ciudades/ciudades.component';
 import { MaterialesComponent } from './vistas/materiales/materiales.component';
 import { OrdenesComponent } from './vistas/ordenes/ordenes.component';
-import { EmpleadosComponent } from './vistas/empleados/empleados.component'
+import { EmpleadosComponent } from './vistas/empleados/empleados.component';
+import { TrazabilidadComponent } from './vistas/trazabilidad/trazabilidad.component'
 
 @NgModule({
   declarations: [
@@ -50,7 +51,8 @@ import { EmpleadosComponent } from './vistas/empleados/empleados.component'
     CiudadesComponent,
     MaterialesComponent,
     OrdenesComponent,
-    EmpleadosComponent
+    EmpleadosComponent,
+    TrazabilidadComponent
   ],
   imports: [
     BrowserModule,

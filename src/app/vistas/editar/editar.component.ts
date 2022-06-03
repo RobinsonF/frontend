@@ -45,11 +45,19 @@ export class EditarComponent implements OnInit {
   editarUsuario(form:listaUsuariosInterface){
     if(this.editarForm.invalid){
       this.error = true;
-      this.errorMsj = "Revise los campos"
+      this.errorMsj = "Revise los campos";
     }else{
       this.api.editarUsuario(form).subscribe(data=>{
-      })
-      alert('Guardado Correctamente');
+        if(data.mensaje=="El correo ya se encuentra registrado"){
+          this.error = true;
+          this.errorMsj = data.mensaje;
+        }else if(data.mensaje=="El login ya se encuentra registrado"){
+          this.error = true;
+          this.errorMsj = data.mensaje;
+        }else{
+          alert(data.mensaje);
+        }
+      });
     }
   }
 

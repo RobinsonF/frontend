@@ -22,6 +22,7 @@ import { RegistroMaterialComponent } from './vistas/registro-material/registro-m
 import { RegistroMaterialOrdenTrabajoComponent } from './vistas/registro-material-orden-trabajo/registro-material-orden-trabajo.component';
 import { RegistroProveedorComponent } from './vistas/registro-proveedor/registro-proveedor.component';
 import { RegistroZonaComponent } from './vistas/registro-zona/registro-zona.component';
+import { TrazabilidadComponent } from './vistas/trazabilidad/trazabilidad.component';
 
 const routes: Routes = [
     {path: '', redirectTo:'login',pathMatch:'full'},
@@ -45,7 +46,8 @@ const routes: Routes = [
     {path: 'registroMaterial', component:RegistroMaterialComponent},
     {path: 'registroTrabajo', component:RegistroMaterialOrdenTrabajoComponent},
     {path: 'registroProveedor', component:RegistroProveedorComponent},
-    {path: 'registroZona', component:RegistroZonaComponent}
+    {path: 'registroZona', component:RegistroZonaComponent},
+    {path: 'trazabilidad/:id', component:TrazabilidadComponent}
 ];
 
 @NgModule({
@@ -56,4 +58,4 @@ export class AppRoutingModule { }
 export const routingComponents = [LoginComponent, DashboardComponent, NuevoComponent, EditarComponent, UsuariosComponent, RegistroComponent,
 RegistroCiudadComponent, RegistroCuadrillaComponent, RegistroDepartamentoComponent, RegistroEmpleadoComponent, RegistroMaterialComponent, 
 RegistroMaterialOrdenTrabajoComponent, RegistroProveedorComponent, RegistroZonaComponent, CuadrillasComponent, ZonasComponent,
-DepartamentosComponent, CiudadesComponent, MaterialesComponent, OrdenesComponent, EmpleadosComponent]
+DepartamentosComponent, CiudadesComponent, MaterialesComponent, OrdenesComponent, EmpleadosComponent, TrazabilidadComponent]
