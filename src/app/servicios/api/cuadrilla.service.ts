@@ -14,7 +14,8 @@ export class CuadrillaService {
   constructor(private http:HttpClient) { }
 
   crerCuadrilla(form:cuadrillaInterface):Observable<responseInterface>{
-    let direccion = this.url + "cuadrilla/crearCuadrilla"
+    let direccion = this.url + "cuadrilla/crearCuadrilla";
     return this.http.post<responseInterface>(direccion, form);
   }
+
 }

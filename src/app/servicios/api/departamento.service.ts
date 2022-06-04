@@ -18,5 +18,9 @@ export class DepartamentoService {
     return this.http.post<responseInterface>(direccion,form);
   }
 
+  obtenerDepartamentos():Observable<departamentoInterface[]>{
+    let direccion = this.url + "departamento/listaDepartamento";
+    return this.http.get<departamentoInterface[]>(direccion);
+  }
 
 }

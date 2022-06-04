@@ -19,16 +19,18 @@
                         </div>
                         <div class="col-lg-7">
                           <div class="p-5">
-                            <form class="user" [formGroup]="registroForm" (ngSubmit)="registrarDepartamento(registroForm.value)">
+                            <form class="user" [formGroup]="registroForm" (ngSubmit)="registrarCiudad(registroForm.value)">
                               <div class="form-group row">
                                 <div class="col-sm-6 mb-3 mb-sm-0">
                                   <input type="text" class="form-control form-control-user" id="nombreCiudad" required formControlName="nombre" novalidate
                                          placeholder="Nombre de la ciudad">
                                 </div>
                                 <div style=" float: top;margin-top: 30px; float: left; margin-left: 20px; width: 300px;">
-                                  <select id="departamento">
-                                    <option></option>
+                                  <select formControlName="departamento">
+                                    <option value="">Selecione un departamento</option>
+                                    <option *ngFor="let departamento of listaDepartamento" [ngValue]="departamento.nombre">{{departamento.nombre}}</option>
                                   </select>
+                                 
                                 </div>
                               </div>
                               <div class="alert alert-danger" *ngIf="errorForm">
