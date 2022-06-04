@@ -41,7 +41,6 @@ export class RegistroComponent implements OnInit {
     if(this.registroForm.invalid){
       this.errorForm = true;
         this.errorMensaje = "Complete los campos";
-        console.log("entra");
     }else{
         if(form.password != form.password2){
         this.errorForm = true;

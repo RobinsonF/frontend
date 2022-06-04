@@ -119,4 +119,14 @@ export class ApiService {
   let direccion = this.url + "parametro/Intento?tipo=I";
   return this.http.get<parametoInterface>(direccion);
   }
+
+  obtenerParametroC():Observable<parametoInterface>{
+    let direccion = this.url + "parametro/Intento?tipo=C";
+    return this.http.get<parametoInterface>(direccion);
+  }
+
+  cambiarPass(form:usuarioInterface):Observable<responseInterface>{
+    let direccion = this.url + "usuario/cambiarPass"
+    return this.http.post<responseInterface>(direccion, form);
+  }
 }
