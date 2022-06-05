@@ -19,30 +19,30 @@
                                 </div>
                                 <div class="col-lg-7">
                                     <div class="p-5">
-                                        <form class="user">
+                                        <form class="user" [formGroup]="registroForm" (ngSubmit)="registrarEmpleado(registroForm.value)">
                                             <div class="form-group row">
                                                 <div class="col-sm-6 mb-3 mb-sm-0">
-                                                    <input type="text" class="form-control form-control-user" id="txtNombre" required
+                                                    <input type="text" class="form-control form-control-user" id="txtNombre" formControlName="nombre"
                                                            placeholder="Nombre del empleado">
                                                 </div>
                                                 <div class="col-sm-6 mb-3 mb-sm-0">
-                                                    <input type="text" class="form-control form-control-user" id="txtApellido" required
+                                                    <input type="text" class="form-control form-control-user" id="txtApellido" formControlName="apellido"
                                                            placeholder="Apellido del empleado">
                                                 </div>
                                                 <div class="col-sm-6 mb-3 mb-sm-0">
-                                                    <input type="text" class="form-control form-control-user" id="txtCedula" required
+                                                    <input type="text" class="form-control form-control-user" id="txtCedula" formControlName="cedula"
                                                            placeholder="Cédula del empleado">
                                                 </div>
                                                 <div style="float: top;margin-top: 30px; float: left; margin-left: 20px; width: 300px;">
-                                                    <select id="cuadrilla">
-                                                        <option></option>
+                                                    <select formControlName="nombreCuadrilla">
+                                                        <option *ngFor="let cuadrilla of cuadrillas" [ngValue]="cuadrilla.nombreCuadrilla">{{cuadrilla.nombreCuadrilla}}</option>
                                                     </select>
                                                 </div>
                                             </div>
-                                            <a type="button"  onclick="registrarEmpleado()" href="#" class="btn btn-primary btn-user btn-block" style="float:top;margin-top: 20px">
-                                                Registrar
-                                            </a>
-
+                                            <div class="alert alert-danger" *ngIf="errorForm">
+                                                <p>{{errorMensaje}}</p>
+                                              </div>
+                                            <button class="btn btn-primary btn-user btn-block">Registrar</button>
                                         </form>
                                         <hr>
                                     </div>
