@@ -39,7 +39,13 @@
                                 </tr>
                                 </thead>
                                 <tbody>
-
+                                    <tr *ngFor="let ciudad of ciudades">
+                                        <th>{{ciudad.idCiudad}}</th>
+                                        <th>{{ciudad.nombre}}</th>
+                                        <th>{{ciudad.nombreDepartamento}}</th>
+                                        <th (click)="editarCiudad(ciudad.idCiudad)"><img src="assets/img/editar.png" width="30" height="30" style="float: left;margin-left: 15px" alt=""></th>
+                                        <th (click)="eliminarCiudad(ciudad.idCiudad)"><img src="assets/img/eliminar.png" width="30" height="30" style="float: left;margin-left: 15px" alt=""></th>
+                                    </tr>
                                 </tbody>
                             </table>
                         </div>

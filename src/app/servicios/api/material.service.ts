@@ -23,4 +23,9 @@ export class MaterialService {
     let direccion = this.url + "material/crearMaterial";
     return this.api.post<responseInterface>(direccion, form);
   }
+
+  obtenerMateriales():Observable<materialInterface[]>{
+    let direccion = this.url + "material/listaMaterial";
+    return this.api.get<materialInterface[]>(direccion);
+  }
 }

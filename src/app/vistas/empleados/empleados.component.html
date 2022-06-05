@@ -33,6 +33,7 @@
                                 <tr>
                                     <th>ID</th>
                                     <th>Nombre</th>
+                                    <th>Apellido</th>
                                     <th>Cédula</th>
                                     <th>Cuadrilla</th>
                                     <th>Editar</th>
@@ -40,7 +41,15 @@
                                 </tr>
                                 </thead>
                                 <tbody>
-
+                                    <tr *ngFor="let empleado of empleados">
+                                        <th>{{empleado.idEmpleado}}</th>
+                                        <th>{{empleado.nombre}}</th>
+                                        <th>{{empleado.apellido}}</th>
+                                        <th>{{empleado.cedula}}</th>
+                                        <th>{{empleado.nombreCuadrilla}}</th>
+                                        <th (click)="editarEmpleado(empleado.idEmpleado)"><img src="assets/img/editar.png" width="30" height="30" style="float: left;margin-left: 15px" alt=""></th>
+                                        <th (click)="eliminarEmpleado(empleado.idEmpleado)"><img src="assets/img/eliminar.png" width="30" height="30" style="float: left;margin-left: 15px" alt=""></th>                                   
+                                    </tr>
                                 </tbody>
                             </table>
                         </div>

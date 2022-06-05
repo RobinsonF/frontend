@@ -1,6 +1,7 @@
 export interface ordenInterface{
+    idTrabajo:string;
     nombreTrabajo:string;
     nombreZona:string;
-    nombreDepartamento:string;
-    fechaIncial:string;
+    nombreCuadrilla:string;
+    fechaInicial:string;
 }

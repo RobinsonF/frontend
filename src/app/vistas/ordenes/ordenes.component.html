@@ -42,7 +42,16 @@
                                 </tr>
                                 </thead>
                                 <tbody>
-
+                                    <tr *ngFor="let orden of ordenes">
+                                        <th>{{orden.idTrabajo}}</th>
+                                        <th>{{orden.nombreTrabajo}}</th>
+                                        <th>{{orden.nombreCuadrilla}}</th>
+                                        <th>{{orden.nombreZona}}</th>
+                                        <th>{{orden.fechaInicial}}</th>
+                                        <th></th>
+                                        <th (click)="editarOrden(orden.idTrabajo)"><img src="assets/img/editar.png" width="30" height="30" style="float: left;margin-left: 15px" alt=""></th>
+                                        <th (click)="elimimarOrden(orden.idTrabajo)"><img src="assets/img/eliminar.png" width="30" height="30" style="float: left;margin-left: 15px" alt=""></th>
+                                    </tr>
                                 </tbody>
                             </table>
                         </div>

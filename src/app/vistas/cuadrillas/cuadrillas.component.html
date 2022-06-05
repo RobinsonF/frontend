@@ -6,7 +6,7 @@
             <div class="container-fluid">
 
                 <!-- Page Heading -->
-                <h1 class="h3 mb-2 text-gray-800">Gestión de Cuadrillas</h1>
+                <h1 class="m-0 font-weight-bold text-primary">Gestión de Cuadrillas</h1>
 
                 <div>
                     <a onclick="reporteUsuario()" href="#" class="btn btn-primary btn-user btn-block" style="width: 170px; height:40px; display: inline-block">
@@ -33,14 +33,17 @@
                                 <tr>
                                     <th>ID</th>
                                     <th>Nombre</th>
-                                    <th>Nombre proveedor</th>
-                                    <th>Turno de trabajo</th>
                                     <th>Editar</th>
                                     <th>Borrar</th>
                                 </tr>
                                 </thead>
                                 <tbody>
-
+                                    <tr *ngFor="let cuadrilla of cuadrillas">
+                                        <th>{{cuadrilla.idCuadrilla}}</th>
+                                        <th>{{cuadrilla.nombreCuadrilla}}</th>
+                                        <th (click)="editarCuadrilla(cuadrilla.idCuadrilla)"><img src="assets/img/editar.png" width="30" height="30" style="float: left;margin-left: 15px" alt=""></th>
+                                        <th (click)="eliminarCuadrilla(cuadrilla.idCuadrilla)"><img src="assets/img/eliminar.png" width="30" height="30" style="float: left;margin-left: 15px" alt=""></th>
+                                    </tr>
                                 </tbody>
                             </table>
                         </div>

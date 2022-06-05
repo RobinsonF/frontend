@@ -38,7 +38,12 @@
                                 </tr>
                                 </thead>
                                 <tbody>
-
+                                    <tr *ngFor="let departamento of departamentos">
+                                        <th>{{departamento.idDepartamento}}</th>
+                                        <th>{{departamento.nombre}}</th>
+                                        <th (click)="editarDepartamento(departamento.idDepartamento)"><img src="assets/img/editar.png" width="30" height="30" style="float: left;margin-left: 15px" alt=""></th>
+                                        <th (click)="eliminarDepartamento(departamento.idDepartamento)"><img src="assets/img/eliminar.png" width="30" height="30" style="float: left;margin-left: 15px" alt=""></th>
+                                    </tr>
                                 </tbody>
                             </table>
                         </div>

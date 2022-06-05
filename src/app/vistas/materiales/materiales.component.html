@@ -33,13 +33,21 @@
                                 <tr>
                                     <th>ID</th>
                                     <th>Nombre</th>
+                                    <th>Tipo de material</th>
                                     <th>Cantidad</th>
                                     <th>Editar</th>
                                     <th>Borrar</th>
                                 </tr>
                                 </thead>
                                 <tbody>
-
+                                    <tr *ngFor="let material of materiales">
+                                        <th>{{material.idMaterial}}</th>
+                                        <th>{{material.nombreMaterial}}</th>
+                                        <th>{{material.nombreTipoMaterial}}</th>
+                                        <th>{{material.cantidad}}</th>
+                                        <th (click)="editarMaterial(material.idMaterial)"><img src="assets/img/editar.png" width="30" height="30" style="float: left;margin-left: 15px" alt=""></th>
+                                        <th (click)="eliminarMaterial(material.idMaterial)"><img src="assets/img/eliminar.png" width="30" height="30" style="float: left;margin-left: 15px" alt=""></th>
+                                    </tr>
                                 </tbody>
                             </table>
                         </div>

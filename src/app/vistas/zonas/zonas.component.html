@@ -20,8 +20,6 @@
                     </a>
                 </div>
 
-
-                <!-- DataTales Example -->
                 <div class="card shadow mb-4">
                     <div class="card-header py-3">
                         <h6 class="m-0 font-weight-bold text-primary">Listado de Zonas</h6>
@@ -39,7 +37,13 @@
                                 </tr>
                                 </thead>
                                 <tbody>
-
+                                    <tr *ngFor="let zona of zonas">
+                                        <th>{{zona.idZona}}</th>
+                                        <th>{{zona.nombre}}</th>
+                                        <th>{{zona.nombreCiudad}}</th>
+                                        <th (click)="editarZona(zona.idZona)"><img src="assets/img/editar.png" width="30" height="30" style="float: left;margin-left: 15px" alt=""></th>
+                                        <th (click)="eliminarZona(zona.idZona)"><img src="assets/img/eliminar.png" width="30" height="30" style="float: left;margin-left: 15px" alt=""></th>
+                                    </tr>
                                 </tbody>
                             </table>
                         </div>
