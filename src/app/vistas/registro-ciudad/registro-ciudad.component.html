@@ -26,8 +26,8 @@
                                          placeholder="Nombre de la ciudad">
                                 </div>
                                 <div style=" float: top;margin-top: 30px; float: left; margin-left: 20px; width: 300px;">
-                                  <select formControlName="departamento">
-                                    <option value="">Selecione un departamento</option>
+                                  <label for="">Seleccione el departamento</label>
+                                  <select formControlName="nombreDepartamento">
                                     <option *ngFor="let departamento of listaDepartamento" [ngValue]="departamento.nombre">{{departamento.nombre}}</option>
                                   </select>
                                  

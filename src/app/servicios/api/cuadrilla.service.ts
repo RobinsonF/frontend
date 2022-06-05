@@ -18,4 +18,9 @@ export class CuadrillaService {
     return this.http.post<responseInterface>(direccion, form);
   }
 
+  obtenerCuadrillas():Observable<cuadrillaInterface[]>{
+    let direccion = this.url + "cuadrilla/listaCuadrilla"
+    return this.http.get<cuadrillaInterface[]>(direccion);
+  }
+
 }

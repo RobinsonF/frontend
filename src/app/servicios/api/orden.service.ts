@@ -1,9 +1,20 @@
 import { Injectable } from '@angular/core';
+import { HttpClient, HttpHeaders} from '@angular/common/http';
+import { Observable } from 'rxjs';
+import { ordenInterface } from 'src/app/modelos/orden.interface';
+import { responseInterface } from 'src/app/modelos/response.interface';
 
 @Injectable({
   providedIn: 'root'
 })
 export class OrdenService {
 
-  constructor() { }
+  url:string = 'http://localhost:8080/'
+
+  constructor(private http:HttpClient) { }
+
+  crearOrden(form:ordenInterface):Observable<responseInterface>{
+    let direccion = this.url + "orden/crearOrden";
+    return this.http.post<responseInterface>(direccion,form);
+  }
 }

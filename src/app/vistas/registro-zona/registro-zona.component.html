@@ -19,40 +19,41 @@
                                 </div>
                                 <div class="col-lg-7">
                                     <div class="p-5">
-                                        <form class="user">
+                                        <form class="user" [formGroup]="registroForm" (ngSubmit)="registrarZona(registroForm.value)">
                                             <div class="form-group row">
                                                 <div class="col-sm-6 mb-3 mb-sm-0">
-                                                    <input type="text" class="form-control form-control-user" id="txtNombre" required
+                                                    <input type="text" class="form-control form-control-user" id="txtNombre" formControlName="nombre"
                                                            placeholder="Nombre de la Zona">
                                                 </div>
                                                 <div style=" float: end;margin-block-end: 20px; float: top;margin-top: 20PX; float: left; margin-left: 20px; width: 300px;">
-                                                    <select id="ciudad">
-                                                        <option></option>
+                                                    <label for="">Selecione una ciudad</label>
+                                                    <select id="ciudad" formControlName="nombreCiudad">
+                                                        <option *ngFor="let ciudad of ciudades" [ngValue]="ciudad.nombre">{{ciudad.nombre}}</option>
                                                     </select>
                                                 </div>
 
                                                 <div class="col-sm-6 mb-3 mb-sm-0">
-                                                    <input type="text" class="form-control form-control-user" id="txtNorte" required
+                                                    <input type="text" class="form-control form-control-user" id="txtNorte" formControlName="limiteNorte"
                                                            placeholder="Limite norte">
                                                 </div>
                                                 <div class="col-sm-6 mb-3 mb-sm-0">
-                                                    <input type="text" class="form-control form-control-user" id="txtSur" required
+                                                    <input type="text" class="form-control form-control-user" id="txtSur" formControlName="limiteSur"
                                                            placeholder="Limite sur">
                                                 </div>
                                                 <div class="col-sm-6 mb-3 mb-sm-0">
-                                                    <input type="text" class="form-control form-control-user" id="txtOriente" required
+                                                    <input type="text" class="form-control form-control-user" id="txtOriente" formControlName="limiteOriente"
                                                            placeholder="Limite oriente">
                                                 </div>
                                                 <div class="col-sm-6 mb-3 mb-sm-0">
-                                                    <input type="text" class="form-control form-control-user" id="txtOccidente" required
+                                                    <input type="text" class="form-control form-control-user" id="txtOccidente" formControlName="limiteOccidente"
                                                            placeholder="Limite occidente">
                                                 </div>
 
                                             </div>
-                                            <a type="button"  onclick="registrarZonas()" href="#" class="btn btn-primary btn-user btn-block" style="float:top;margin-top: 20px">
-                                                Registrar
-                                            </a>
-
+                                            <div class="alert alert-danger" *ngIf="errorForm">
+                                                <p>{{errorMensaje}}</p>
+                                            </div>
+                                            <button class="btn btn-primary btn-user btn-block">Registrar</button>
                                         </form>
                                         <hr>
                                     </div>

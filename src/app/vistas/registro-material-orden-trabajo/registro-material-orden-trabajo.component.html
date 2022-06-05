@@ -19,37 +19,34 @@
                                 </div>
                                 <div class="col-lg-7">
                                     <div class="p-5">
-                                        <form class="user">
+                                        <form class="user" [formGroup]="registroForm" (ngSubmit)="registrarOrden(registroForm.value)">
                                             <div class="form-group row">
                                                 <div class="col-sm-6 mb-3 mb-sm-0">
-                                                    <input type="text" class="form-control form-control-user" id="txtlogin" required
+                                                    <input type="text" class="form-control form-control-user" id="txtlogin" formControlName="nombreTrabajo"
                                                            placeholder="Nombre de la orden de trabajo">
                                                 </div>
                                                 <div style=" float: top;margin-top: 30px; float: left; margin-left: 20px; width: 300px;">
-                                                    <select id="cuadrilla">
-                                                        <option></option>
+                                                    <label for="">Seleccione el nombre de la cuadrilla</label>
+                                                    <select formControlName="nombreCuadrilla">
+                                                        <option *ngFor="let cuadrilla of cuadrillas" [ngValue]="cuadrilla.nombreCuadrilla">{{cuadrilla.nombreCuadrilla}}</option>
                                                     </select>
                                                 </div>
                                                 <div style="float: end;margin-block-end: 20px; float: top;margin-top: 30px; float: left; margin-left: 20px; width: 300px;">
-                                                    <select name="Turno de trabajo">
-                                                        <option value="value1">Seleccione el nombre de la zona</option>
-                                                        <option value="value1">Value 1</option>
-                                                        <option value="value2">Value 2</option>
-                                                        <option value="value3">Value 3</option>
+                                                    <label for="">Seleccione el nombre de la zona</label>
+                                                    <select formControlName="nombreZona">
+                                                        <option *ngFor="let zona of zonas" [ngValue]="zona.nombre">{{zona.nombre}}</option>
                                                     </select>
                                                 </div>
 
                                                 <div class="col-sm-6 mb-3 mb-sm-0">
-                                                    <input type="date" class="form-control form-control-user" id="txtFecha" required
+                                                    <input type="date" class="form-control form-control-user" id="txtFecha" formControlName="fechaInicial"
                                                            placeholder="Fecha de inicio">
                                                 </div>
-
-
                                             </div>
-                                            <a type="button"  onclick="registrarUsuario()" href="#" class="btn btn-primary btn-user btn-block" style="float:top;margin-top: 20px">
-                                                Registrar
-                                            </a>
-
+                                            <div class="alert alert-danger" *ngIf="errorForm">
+                                                <p>{{errorMensaje}}</p>
+                                            </div>
+                                            <button class="btn btn-primary btn-user btn-block">Registrar</button>
                                         </form>
                                         <hr>
                                     </div>
