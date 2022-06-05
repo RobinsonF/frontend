@@ -39,7 +39,6 @@ export class RegistroMaterialOrdenTrabajoComponent implements OnInit {
   }
 
   registrarOrden(form:ordenInterface){
-    console.log(form);
     if(this.registroForm.invalid){
       this.errorForm = true;
       this.errorMensaje = "Revise los campos";

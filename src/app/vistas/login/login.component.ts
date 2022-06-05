@@ -5,6 +5,7 @@ import { loginInterface } from 'src/app/modelos/login.interface';
 import { usuarioInterface } from 'src/app/modelos/registro.interface';
 import { Router } from '@angular/router';
 import { responseInterface } from 'src/app/modelos/response.interface';
+import { parametoInterface } from 'src/app/modelos/parametro.interface';
 
 @Component({
   selector: 'app-login',
@@ -41,42 +42,37 @@ export class LoginComponent implements OnInit {
     if(this.loginForm.invalid){
       this.error = true;
       this.errorMsj = "Revise los campos";
-     
     }else{
-      this.api.obtenerParametroC().subscribe(data6=>{
-        this.api.obtenerParametro().subscribe(data4=>{
-          this.api.obtenerIntentos(form).subscribe(data1=>{ 
-            if(Number(data1)>=Number(data4.valor_int)){
-              this.error = true;
-              this.errorMsj = "La cuenta se encuentra bloqueada";
-            }else{
-              this.api.loginByEmail(form).subscribe(data=>{
-                  let dataRenponse:responseInterface = data;
-                  if(dataRenponse.estado!='FAIL'){
-                    if(Number(data.mensaje)>=Number(data6.valor_int)){
-                      this.error3 = true;
-                      this.errorMsj = "Para poder iniciar sesión es necesario cambiar la contraseña";
-                    }else{
-                      localStorage.setItem("correo",this.loginForm.get('correo')?.value);
-                      this.api.setearIntentoCero(form).subscribe(data2=>{
-                      });
-                      this.error = false;
-                      this.error2 = false;
-                      this.error3 = false;
-                      this.router.navigate(['dashboard']);
-                    }
-                  }else{
-                    this.error = true;
-                    this.errorMsj = "Credenciales incorrectas";
-                    this.api.aumentarIntento(form).subscribe(data1=>{
-                    });
-                  }
-              });
-            }
-          });
-        });
+        this.api.loginByEmail(form).subscribe(data=>{
+              let dataRenponse:responseInterface = data;
+              if(data.mensaje=="La cuenta se encuentra bloqueada"){
+                this.error = true;
+                this.error3 = false;
+                this.errorMsj = data.mensaje;
+              }else{
+                if(dataRenponse.estado!='FAIL'){
+                  if (data.mensaje=="Para poder iniciar sesión es necesario cambiar la contraseña"){
+                     this.error3 = true;
+                     this.error = false;
+                     this.errorMsj = data.mensaje;
+                   }else{
+                     localStorage.setItem("correo",this.loginForm.get('correo')?.value);
+                     this.api.setearIntentoCero(form).subscribe(data2=>{
+                     });
+                     this.error = false;
+                     this.error2 = false;
+                     this.error3 = false;
+                     this.router.navigate(['dashboard']);
+                   }
+                 }else{
+                   this.error = true;
+                   this.error3 = false;
+                   this.errorMsj = "Credenciales incorrectas";
+                   this.api.aumentarIntento(form).subscribe(data1=>{
+                   });
+                 }
+              }
       });
-      
     }
   }
 }

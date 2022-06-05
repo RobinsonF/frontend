@@ -9,12 +9,17 @@ import { responseInterface } from 'src/app/modelos/response.interface';
 })
 export class OrdenService {
 
-  url:string = 'http://localhost:8080/'
+  url:string = 'http://localhost:8080/';
 
   constructor(private http:HttpClient) { }
 
   crearOrden(form:ordenInterface):Observable<responseInterface>{
     let direccion = this.url + "orden/crearOrden";
     return this.http.post<responseInterface>(direccion,form);
+  }
+
+  obtenerOrdenes():Observable<ordenInterface[]>{
+    let direccion = this.url + "orden/listaOrden";
+    return this.http.get<ordenInterface[]>(direccion); 
   }
 }
