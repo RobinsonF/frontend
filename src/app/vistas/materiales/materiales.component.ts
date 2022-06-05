@@ -13,6 +13,7 @@ export class MaterialesComponent implements OnInit {
   constructor(private api:MaterialService, private router:Router) { }
 
   materiales:materialInterface[];
+  material1:materialInterface;
 
   ngOnInit(): void {
     this.api.obtenerMateriales().subscribe(data=>{
@@ -22,7 +23,16 @@ export class MaterialesComponent implements OnInit {
   }
 
   eliminarMaterial(id:any){
-
+    let data1:any = [];
+    data1.idMaterial=id;
+    this.material1 = data1;
+    if (!confirm('¿Desea eliminar este material?')) {
+      return;
+    }else{
+      this.api.eliminarMaterial(this.material1).subscribe(data=>{
+        location.reload();
+      });
+    }
   }
 
   editarMaterial(id:any){

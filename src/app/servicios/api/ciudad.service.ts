@@ -22,4 +22,9 @@ export class CiudadService {
     let direccion = this.url + "ciudad/listaCiudad";
     return this.http.get<ciudadInterface[]>(direccion);
   }
+
+  eliminarCiudad(form:ciudadInterface):Observable<responseInterface>{
+    let direccion = this.url + "ciudad/eliminarCiudad?id=" + form.idCiudad;
+    return this.http.put<responseInterface>(direccion, form);
+  }
 }

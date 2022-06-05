@@ -22,4 +22,9 @@ export class EmpleadoService {
     return this.http.get<empleadoInterface[]>(direccion);
   }
 
+  eliminarEmpleado(form:empleadoInterface):Observable<responseInterface>{
+    let direccion = this.url + "empleado/eliminarEmpleado?id="+form.idEmpleado;
+    return this.http.put<responseInterface>(direccion, form);
+  }
+
 }

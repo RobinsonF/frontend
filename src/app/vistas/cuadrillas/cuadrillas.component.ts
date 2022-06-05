@@ -11,6 +11,7 @@ import { Router } from '@angular/router';
 export class CuadrillasComponent implements OnInit {
 
   cuadrillas:cuadrillaInterface[];
+  cuadrilla1:cuadrillaInterface;
 
   constructor(private api:CuadrillaService, private router:Router) { }
 
@@ -25,7 +26,16 @@ export class CuadrillasComponent implements OnInit {
   }
 
   eliminarCuadrilla(id:any){
-    
+    let data1:any = [];
+    data1.idCuadrilla= id;
+    this.cuadrilla1 = data1;
+    if (!confirm('¿Desea eliminar esta cuadrilla?')) {
+      return;
+    }else{
+      this.api.eliminarCuadrilla(this.cuadrilla1).subscribe(data=>{
+        location.reload();
+      });
+    }
   }
 
 }

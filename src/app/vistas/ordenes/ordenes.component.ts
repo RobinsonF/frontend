@@ -13,6 +13,7 @@ export class OrdenesComponent implements OnInit {
   constructor(private api:OrdenService, private router:Router) { }
 
   ordenes:ordenInterface[];
+  orden1:ordenInterface;
 
   ngOnInit(): void {
     this.api.obtenerOrdenes().subscribe(data=>{
@@ -22,7 +23,16 @@ export class OrdenesComponent implements OnInit {
   }
 
   elimimarOrden(id:any){
-
+    let data1:any = [];
+    data1.idTrabajo = id;
+    this.orden1 = data1;
+    if (!confirm('¿Desea eliminar esta orden?')) {
+      return;
+    }else{
+      this.api.eliminarOrden(this.orden1).subscribe(data=>{
+        location.reload();
+      });
+    }
   }
 
   editarOrden(id:any){

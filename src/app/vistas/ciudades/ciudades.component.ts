@@ -11,6 +11,7 @@ import { Router } from '@angular/router';
 export class CiudadesComponent implements OnInit {
 
   ciudades:ciudadInterface[];
+  ciudad1:ciudadInterface;
 
   constructor(private api:CiudadService, private router:Router) { }
 
@@ -21,7 +22,16 @@ export class CiudadesComponent implements OnInit {
   }
 
   eliminarCiudad(id:any){
-
+    let data1:any = [];
+    data1.idCiudad = id;
+    this.ciudad1 = data1;
+    if (!confirm('¿Desea eliminar esta ciudad?')) {
+      return;
+    }else{
+      this.api.eliminarCiudad(this.ciudad1).subscribe(data=>{
+        location.reload();
+      });
+    }
   } 
 
   editarCiudad(id:any){

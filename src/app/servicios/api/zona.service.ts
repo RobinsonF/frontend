@@ -23,5 +23,9 @@ export class ZonaService {
     return this.http.get<zonaInterface[]>(direccion);
   }
 
+  eliminarZona(form:zonaInterface):Observable<responseInterface>{
+    let direccion = this.url + "zona/eliminarZona?id=" + form.idZona;
+    return this.http.put<responseInterface>(direccion, form);
+  }
 
 }

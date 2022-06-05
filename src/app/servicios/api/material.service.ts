@@ -28,4 +28,9 @@ export class MaterialService {
     let direccion = this.url + "material/listaMaterial";
     return this.api.get<materialInterface[]>(direccion);
   }
+
+  eliminarMaterial(form:materialInterface):Observable<responseInterface>{
+    let direccion = this.url + "material/eliminarMaterial?id="+form.idMaterial;
+    return this.api.put<responseInterface>(direccion, form);
+  }
 }

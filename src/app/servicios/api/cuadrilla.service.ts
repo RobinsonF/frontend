@@ -23,4 +23,9 @@ export class CuadrillaService {
     return this.http.get<cuadrillaInterface[]>(direccion);
   }
 
+  eliminarCuadrilla(form:cuadrillaInterface):Observable<responseInterface>{
+    let direccion = this.url + "cuadrilla/eliminarCuadrilla?id="+form.idCuadrilla;
+    return this.http.put<responseInterface>(direccion, form);
+  }
+
 }

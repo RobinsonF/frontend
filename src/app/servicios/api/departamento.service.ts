@@ -23,4 +23,9 @@ export class DepartamentoService {
     return this.http.get<departamentoInterface[]>(direccion);
   }
 
+  eliminarDepartamento(form:departamentoInterface):Observable<responseInterface>{
+    let direccion = this.url + "departamento/eliminarDepartamento?id="+ form.idDepartamento;
+    return this.http.put<responseInterface>(direccion, form);
+  }
+
 }

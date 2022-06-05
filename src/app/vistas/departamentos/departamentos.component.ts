@@ -11,6 +11,7 @@ import { DepartamentoService } from 'src/app/servicios/api/departamento.service'
 export class DepartamentosComponent implements OnInit {
 
   departamentos:departamentoInterface[];
+  departamento1:departamentoInterface;
 
   constructor(private api:DepartamentoService, private router:Router) { }
 
@@ -21,7 +22,16 @@ export class DepartamentosComponent implements OnInit {
   }
 
   eliminarDepartamento(id:any){
-
+    let data1:any = [];
+    data1.idDepartamento = id;
+    this.departamento1 = data1;
+    if (!confirm('¿Desea eliminar este departamento?')) {
+      return;
+    }else{
+      this.api.eliminarDepartamento(this.departamento1).subscribe(data=>{
+        location.reload();
+      });
+    }
   }
 
   editarDepartamento(id:any){

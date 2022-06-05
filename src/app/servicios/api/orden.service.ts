@@ -22,4 +22,9 @@ export class OrdenService {
     let direccion = this.url + "orden/listaOrden";
     return this.http.get<ordenInterface[]>(direccion); 
   }
+
+  eliminarOrden(form:ordenInterface):Observable<responseInterface>{
+    let direccion = this.url + "orden/eliminarOrden?id="+form.idTrabajo;
+    return this.http.put<responseInterface>(direccion, form);
+  }
 }

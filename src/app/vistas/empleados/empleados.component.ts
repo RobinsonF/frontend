@@ -11,6 +11,7 @@ import { Router } from '@angular/router';
 export class EmpleadosComponent implements OnInit {
 
   empleados:empleadoInterface[];
+  empleado1:empleadoInterface;
 
   constructor(private api:EmpleadoService, private router:Router) { }
 
@@ -21,7 +22,16 @@ export class EmpleadosComponent implements OnInit {
   }
 
   eliminarEmpleado(id:any){
-
+    let data1:any = [];
+    data1.idEmpleado = id;
+    this.empleado1 = data1;
+    if (!confirm('¿Desea eliminar este empleado?')) {
+      return;
+    }else{
+      this.api.eliminarEmpleado(this.empleado1).subscribe(data=>{
+        location.reload();
+      });
+    }
   }
 
   editarEmpleado(id:any){

@@ -11,6 +11,7 @@ import { ZonaService } from 'src/app/servicios/api/zona.service';
 export class ZonasComponent implements OnInit {
 
   zonas:zonaInterface[];
+  zona1:zonaInterface;
 
   constructor(private api:ZonaService, private router:Router) { }
 
@@ -21,7 +22,16 @@ export class ZonasComponent implements OnInit {
   }
 
   eliminarZona(id:any){
-
+    let data1:any = [];
+    data1.idZona = id;
+    this.zona1 = data1;
+    if (!confirm('¿Desea eliminar esta zona?')) {
+      return;
+    }else{
+      this.api.eliminarZona(this.zona1).subscribe(data=>{
+        location.reload();
+      });
+    }
   }
 
   editarZona(id:any){
