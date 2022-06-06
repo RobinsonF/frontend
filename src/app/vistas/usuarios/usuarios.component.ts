@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ApiService } from 'src/app/servicios/api/api.service';
-import { Router } from '@angular/router';
+import { Router, RouterLink } from '@angular/router';
 import { listaUsuariosInterface } from 'src/app/modelos/listaUsuarios.interface';
 import { eliminarUsuarioInterface } from 'src/app/modelos/eliminarUsuario.interface';
 import { window } from 'rxjs';
@@ -62,4 +62,5 @@ export class UsuariosComponent implements OnInit {
       }
     });
   }
+
 }
