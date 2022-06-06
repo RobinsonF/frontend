@@ -34,8 +34,4 @@ export class DepartamentosComponent implements OnInit {
     }
   }
 
-  editarDepartamento(id:any){
-    
-  }
-
 }

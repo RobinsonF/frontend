@@ -27,7 +27,7 @@
                                                 </div>
                                                 <div style=" float: end;margin-block-end: 20px; float: top;margin-top: 20PX; float: left; margin-left: 20px; width: 300px;">
                                                     <label for="">Selecione una ciudad</label>
-                                                    <select id="ciudad" formControlName="nombreCiudad">
+                                                    <select id="ciudad" formControlName="nombreCiudad" >
                                                         <option *ngFor="let ciudad of ciudades" [ngValue]="ciudad.nombre">{{ciudad.nombre}}</option>
                                                     </select>
                                                 </div>

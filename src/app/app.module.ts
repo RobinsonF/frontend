@@ -27,7 +27,12 @@ import { MaterialesComponent } from './vistas/materiales/materiales.component';
 import { OrdenesComponent } from './vistas/ordenes/ordenes.component';
 import { EmpleadosComponent } from './vistas/empleados/empleados.component';
 import { TrazabilidadComponent } from './vistas/trazabilidad/trazabilidad.component';
-import { PasswordComponent } from './vistas/password/password.component'
+import { PasswordComponent } from './vistas/password/password.component';
+import { EditarCuadrillaComponent } from './vistas/editar-cuadrilla/editar-cuadrilla.component';
+import { ZonaEditarComponent } from './vistas/zona-editar/zona-editar.component';
+import { MaterialEditarComponent } from './vistas/material-editar/material-editar.component';
+import { OrdenEditarComponent } from './vistas/orden-editar/orden-editar.component';
+import { EmpleadoEditarComponent } from './vistas/empleado-editar/empleado-editar.component'
 
 @NgModule({
   declarations: [
@@ -54,7 +59,12 @@ import { PasswordComponent } from './vistas/password/password.component'
     OrdenesComponent,
     EmpleadosComponent,
     TrazabilidadComponent,
-    PasswordComponent
+    PasswordComponent,
+    EditarCuadrillaComponent,
+    ZonaEditarComponent,
+    MaterialEditarComponent,
+    OrdenEditarComponent,
+    EmpleadoEditarComponent
   ],
   imports: [
     BrowserModule,

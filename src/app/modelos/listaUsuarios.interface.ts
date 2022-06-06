@@ -5,4 +5,5 @@ export interface listaUsuariosInterface{
     direccion:string;
     telefono:string;
     correo:string;
+    nombreRol:string;
 }

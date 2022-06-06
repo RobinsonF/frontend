@@ -35,7 +35,7 @@ export class ZonasComponent implements OnInit {
   }
 
   editarZona(id:any){
-
+    this.router.navigate(['editarZona',id]);
   }
 
 }

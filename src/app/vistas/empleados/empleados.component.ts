@@ -35,7 +35,7 @@ export class EmpleadosComponent implements OnInit {
   }
 
   editarEmpleado(id:any){
-
+    this.router.navigate(['editarEmpleado',id]);
   }
 
 }

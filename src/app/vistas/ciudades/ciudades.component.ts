@@ -34,8 +34,4 @@ export class CiudadesComponent implements OnInit {
     }
   } 
 
-  editarCiudad(id:any){
-    
-  }
-
 }

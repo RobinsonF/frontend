@@ -36,7 +36,7 @@ export class OrdenesComponent implements OnInit {
   }
 
   editarOrden(id:any){
-
+    this.router.navigate(['editarOrden',id]);
   }
 
 }

@@ -36,7 +36,7 @@ export class MaterialesComponent implements OnInit {
   }
 
   editarMaterial(id:any){
-
+    this.router.navigate(['editarMaterial',id]);
   }
 
 }

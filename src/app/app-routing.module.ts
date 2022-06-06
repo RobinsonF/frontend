@@ -24,6 +24,11 @@ import { RegistroProveedorComponent } from './vistas/registro-proveedor/registro
 import { RegistroZonaComponent } from './vistas/registro-zona/registro-zona.component';
 import { TrazabilidadComponent } from './vistas/trazabilidad/trazabilidad.component';
 import { PasswordComponent } from './vistas/password/password.component';
+import { EditarCuadrillaComponent } from './vistas/editar-cuadrilla/editar-cuadrilla.component';
+import { ZonaEditarComponent } from './vistas/zona-editar/zona-editar.component';
+import { MaterialEditarComponent } from './vistas/material-editar/material-editar.component';
+import { OrdenEditarComponent } from './vistas/orden-editar/orden-editar.component';
+import { EmpleadoEditarComponent } from './vistas/empleado-editar/empleado-editar.component';
 
 const routes: Routes = [
     {path: '', redirectTo:'login',pathMatch:'full'},
@@ -49,7 +54,12 @@ const routes: Routes = [
     {path: 'registroProveedor', component:RegistroProveedorComponent},
     {path: 'registroZona', component:RegistroZonaComponent},
     {path: 'trazabilidad/:id', component:TrazabilidadComponent},
-    {path: 'password', component:PasswordComponent}
+    {path: 'password', component:PasswordComponent},
+    {path: 'editarCuadrilla/:id', component:EditarCuadrillaComponent},
+    {path: 'editarZona/:id', component:ZonaEditarComponent},
+    {path: 'editarMaterial/:id', component:MaterialEditarComponent},
+    {path: 'editarOrden/:id', component:OrdenEditarComponent},
+    {path: 'editarEmpleado/:id', component:EmpleadoEditarComponent},
 ];
 
 @NgModule({
@@ -60,4 +70,5 @@ export class AppRoutingModule { }
 export const routingComponents = [LoginComponent, DashboardComponent, NuevoComponent, EditarComponent, UsuariosComponent, RegistroComponent,
 RegistroCiudadComponent, RegistroCuadrillaComponent, RegistroDepartamentoComponent, RegistroEmpleadoComponent, RegistroMaterialComponent, 
 RegistroMaterialOrdenTrabajoComponent, RegistroProveedorComponent, RegistroZonaComponent, CuadrillasComponent, ZonasComponent,
-DepartamentosComponent, CiudadesComponent, MaterialesComponent, OrdenesComponent, EmpleadosComponent, TrazabilidadComponent, PasswordComponent]
+DepartamentosComponent, CiudadesComponent, MaterialesComponent, OrdenesComponent, EmpleadosComponent, TrazabilidadComponent, PasswordComponent,
+EditarCuadrillaComponent, ZonaEditarComponent, MaterialEditarComponent, OrdenEditarComponent, EmpleadoEditarComponent]

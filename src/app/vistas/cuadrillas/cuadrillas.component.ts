@@ -22,7 +22,7 @@ export class CuadrillasComponent implements OnInit {
   }
 
   editarCuadrilla(id:any){
-
+    this.router.navigate(['editarCuadrilla',id]);
   }
 
   eliminarCuadrilla(id:any){
