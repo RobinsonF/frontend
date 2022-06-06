@@ -10,6 +10,8 @@ import { Router } from '@angular/router';
 })
 export class CiudadesComponent implements OnInit {
 
+  pages: number = 1;
+
   ciudades:ciudadInterface[];
   ciudad1:ciudadInterface;
 

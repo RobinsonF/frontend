@@ -12,6 +12,8 @@ export class OrdenesComponent implements OnInit {
 
   constructor(private api:OrdenService, private router:Router) { }
 
+  pages: number = 1;
+
   ordenes:ordenInterface[];
   orden1:ordenInterface;
 

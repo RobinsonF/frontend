@@ -10,6 +10,8 @@ import { DepartamentoService } from 'src/app/servicios/api/departamento.service'
 })
 export class DepartamentosComponent implements OnInit {
 
+  pages: number = 1;
+
   departamentos:departamentoInterface[];
   departamento1:departamentoInterface;
 

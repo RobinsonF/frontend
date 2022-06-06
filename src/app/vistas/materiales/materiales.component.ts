@@ -12,6 +12,8 @@ export class MaterialesComponent implements OnInit {
 
   constructor(private api:MaterialService, private router:Router) { }
 
+  pages: number = 1;
+
   materiales:materialInterface[];
   material1:materialInterface;
 

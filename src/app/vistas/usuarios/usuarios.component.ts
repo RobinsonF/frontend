@@ -13,6 +13,8 @@ import { window } from 'rxjs';
 })
 export class UsuariosComponent implements OnInit {
 
+  pages: number = 1;
+
   usuarios:listaUsuariosInterface[];
   usuario:eliminarUsuarioInterface;
   
@@ -62,5 +64,7 @@ export class UsuariosComponent implements OnInit {
       }
     });
   }
+
+
 
 }

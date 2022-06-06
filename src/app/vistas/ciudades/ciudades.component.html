@@ -25,7 +25,7 @@
                                 </tr>
                                 </thead>
                                 <tbody>
-                                    <tr *ngFor="let ciudad of ciudades">
+                                    <tr *ngFor="let ciudad of ciudades | paginate:{ itemsPerPage:5, currentPage:pages}">
                                         <th>{{ciudad.idCiudad}}</th>
                                         <th>{{ciudad.nombre}}</th>
                                         <th>{{ciudad.nombreDepartamento}}</th>
@@ -33,6 +33,7 @@
                                     </tr>
                                 </tbody>
                             </table>
+                            <pagination-controls (pageChange)="pages = $event"></pagination-controls>
                         </div>
                     </div>
                 </div>

@@ -1,6 +1,5 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-
 import { routingComponents } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { HeaderComponent } from './plantillas/header/header.component';
@@ -32,7 +31,8 @@ import { EditarCuadrillaComponent } from './vistas/editar-cuadrilla/editar-cuadr
 import { ZonaEditarComponent } from './vistas/zona-editar/zona-editar.component';
 import { MaterialEditarComponent } from './vistas/material-editar/material-editar.component';
 import { OrdenEditarComponent } from './vistas/orden-editar/orden-editar.component';
-import { EmpleadoEditarComponent } from './vistas/empleado-editar/empleado-editar.component'
+import { EmpleadoEditarComponent } from './vistas/empleado-editar/empleado-editar.component';
+import { NgxPaginationModule } from 'ngx-pagination';
 
 @NgModule({
   declarations: [
@@ -71,7 +71,8 @@ import { EmpleadoEditarComponent } from './vistas/empleado-editar/empleado-edita
     AppRoutingModule,
     ReactiveFormsModule, 
     FormsModule,
-    HttpClientModule
+    HttpClientModule,
+    NgxPaginationModule
   ],
   providers: [],
   bootstrap: [AppComponent]

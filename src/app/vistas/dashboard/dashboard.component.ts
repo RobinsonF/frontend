@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ApiService } from 'src/app/servicios/api/api.service';
+import { ChartDataset } from 'chart.js';
+import { Color } from 'chart.js';
 import { Router } from '@angular/router';
 import { listaUsuariosInterface } from 'src/app/modelos/listaUsuarios.interface';
 

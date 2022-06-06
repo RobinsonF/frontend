@@ -39,7 +39,7 @@
                                 </tr>
                                 </thead>
                                 <tbody>
-                                    <tr *ngFor="let empleado of empleados">
+                                    <tr *ngFor="let empleado of empleados | paginate:{ itemsPerPage:5, currentPage:pages}">
                                         <th>{{empleado.idEmpleado}}</th>
                                         <th>{{empleado.nombre}}</th>
                                         <th>{{empleado.apellido}}</th>
@@ -50,6 +50,7 @@
                                     </tr>
                                 </tbody>
                             </table>
+                            <pagination-controls (pageChange)="pages = $event"></pagination-controls>
                         </div>
                     </div>
                 </div>

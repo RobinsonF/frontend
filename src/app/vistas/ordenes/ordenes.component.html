@@ -39,7 +39,7 @@
                                 </tr>
                                 </thead>
                                 <tbody>
-                                    <tr *ngFor="let orden of ordenes">
+                                    <tr *ngFor="let orden of ordenes | paginate:{ itemsPerPage:5, currentPage:pages}">
                                         <th>{{orden.idTrabajo}}</th>
                                         <th>{{orden.nombreTrabajo}}</th>
                                         <th>{{orden.nombreCuadrilla}}</th>
@@ -51,6 +51,7 @@
                                     </tr>
                                 </tbody>
                             </table>
+                            <pagination-controls (pageChange)="pages = $event"></pagination-controls>
                         </div>
                     </div>
                 </div>

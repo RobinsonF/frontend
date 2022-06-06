@@ -36,7 +36,7 @@
                                 </tr>
                                 </thead>
                                 <tbody>
-                                    <tr *ngFor="let cuadrilla of cuadrillas">
+                                    <tr *ngFor="let cuadrilla of cuadrillas | paginate:{ itemsPerPage:5, currentPage:pages}">
                                         <th>{{cuadrilla.idCuadrilla}}</th>
                                         <th>{{cuadrilla.nombreCuadrilla}}</th>
                                         <th (click)="editarCuadrilla(cuadrilla.idCuadrilla)"><img src="assets/img/editar.png" width="30" height="30" style="float: left;margin-left: 15px" alt=""></th>
@@ -44,6 +44,8 @@
                                     </tr>
                                 </tbody>
                             </table>
+                            <pagination-controls (pageChange)="pages = $event"></pagination-controls>
+
                         </div>
                     </div>
                 </div>

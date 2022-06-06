@@ -10,6 +10,8 @@ import { Router } from '@angular/router';
 })
 export class EmpleadosComponent implements OnInit {
 
+  pages: number = 1;
+
   empleados:empleadoInterface[];
   empleado1:empleadoInterface;
 

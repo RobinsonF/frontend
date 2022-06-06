@@ -24,13 +24,15 @@
                                 </tr>
                                 </thead>
                                 <tbody>
-                                    <tr *ngFor="let departamento of departamentos">
+                                    <tr *ngFor="let departamento of departamentos | paginate:{ itemsPerPage:5, currentPage:pages}">
                                         <th>{{departamento.idDepartamento}}</th>
                                         <th>{{departamento.nombre}}</th>
                                         <th (click)="eliminarDepartamento(departamento.idDepartamento)"><img src="assets/img/eliminar.png" width="30" height="30" style="float: left;margin-left: 15px" alt=""></th>
                                     </tr>
                                 </tbody>
                             </table>
+                            <pagination-controls (pageChange)="pages = $event"></pagination-controls>
+
                         </div>
                     </div>
                 </div>

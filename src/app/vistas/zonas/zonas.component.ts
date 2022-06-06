@@ -10,6 +10,8 @@ import { ZonaService } from 'src/app/servicios/api/zona.service';
 })
 export class ZonasComponent implements OnInit {
 
+  pages: number = 1;
+
   zonas:zonaInterface[];
   zona1:zonaInterface;
 

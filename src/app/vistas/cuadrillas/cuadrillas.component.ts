@@ -10,6 +10,8 @@ import { Router } from '@angular/router';
 })
 export class CuadrillasComponent implements OnInit {
 
+  pages: number = 1;
+
   cuadrillas:cuadrillaInterface[];
   cuadrilla1:cuadrillaInterface;
 
