@@ -33,6 +33,7 @@ import { MaterialEditarComponent } from './vistas/material-editar/material-edita
 import { OrdenEditarComponent } from './vistas/orden-editar/orden-editar.component';
 import { EmpleadoEditarComponent } from './vistas/empleado-editar/empleado-editar.component';
 import { NgxPaginationModule } from 'ngx-pagination';
+import { PerfilUsuarioComponent } from './vistas/perfil-usuario/perfil-usuario.component';
 
 @NgModule({
   declarations: [
@@ -64,7 +65,8 @@ import { NgxPaginationModule } from 'ngx-pagination';
     ZonaEditarComponent,
     MaterialEditarComponent,
     OrdenEditarComponent,
-    EmpleadoEditarComponent
+    EmpleadoEditarComponent,
+    PerfilUsuarioComponent
   ],
   imports: [
     BrowserModule,

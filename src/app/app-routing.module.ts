@@ -29,6 +29,7 @@ import { ZonaEditarComponent } from './vistas/zona-editar/zona-editar.component'
 import { MaterialEditarComponent } from './vistas/material-editar/material-editar.component';
 import { OrdenEditarComponent } from './vistas/orden-editar/orden-editar.component';
 import { EmpleadoEditarComponent } from './vistas/empleado-editar/empleado-editar.component';
+import { PerfilUsuarioComponent } from './vistas/perfil-usuario/perfil-usuario.component';
 
 const routes: Routes = [
     {path: '', redirectTo:'login',pathMatch:'full'},
@@ -60,6 +61,7 @@ const routes: Routes = [
     {path: 'editarMaterial/:id', component:MaterialEditarComponent},
     {path: 'editarOrden/:id', component:OrdenEditarComponent},
     {path: 'editarEmpleado/:id', component:EmpleadoEditarComponent},
+    {path: 'perfilUsuario/:id',component:PerfilUsuarioComponent}
 ];
 
 @NgModule({
@@ -71,4 +73,4 @@ export const routingComponents = [LoginComponent, DashboardComponent, NuevoCompo
 RegistroCiudadComponent, RegistroCuadrillaComponent, RegistroDepartamentoComponent, RegistroEmpleadoComponent, RegistroMaterialComponent, 
 RegistroMaterialOrdenTrabajoComponent, RegistroProveedorComponent, RegistroZonaComponent, CuadrillasComponent, ZonasComponent,
 DepartamentosComponent, CiudadesComponent, MaterialesComponent, OrdenesComponent, EmpleadosComponent, TrazabilidadComponent, PasswordComponent,
-EditarCuadrillaComponent, ZonaEditarComponent, MaterialEditarComponent, OrdenEditarComponent, EmpleadoEditarComponent]
+EditarCuadrillaComponent, ZonaEditarComponent, MaterialEditarComponent, OrdenEditarComponent, EmpleadoEditarComponent, PerfilUsuarioComponent]

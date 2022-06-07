@@ -135,4 +135,9 @@ export class ApiService {
     let direccion = this.url + "usuario/cambiarPass"
     return this.http.post<responseInterface>(direccion, form);
   }
+
+  obtenerIdPorCorreo(correo:any):Observable<responseInterface>{
+    let direccion = this.url + "usuario/obtenerUsuarioCorreo?correo=" + correo;
+    return this.http.get<responseInterface>(direccion);
+  }
 }
