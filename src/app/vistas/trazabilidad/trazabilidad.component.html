@@ -1,7 +1,22 @@
 
-<h1 style="color:#FFFFFF">Trazabilidad Usuario {{usuario.nombreUsuario}}</h1>
+ <div class="container-fluid">
+    <div class="card shadow mb-4">
+        <div class="card-header py-3">
+            <h1 style="color: #000;" class="m-0 font-weight-bold text-primary">Trazabilidad Usuario {{usuario1.nombre}}</h1>
+        </div>    
     <div class="card shadow mb-4">
         <div class="card-body">
+            <div class="col-lg-7">
+                        <div class="form-group row">
+                            <div class="col-sm-6 mb-3 mb-sm-0">
+                                <form [formGroup]="registroForm" (ngSubmit)="obtenerTrazabilidadPorFechas(registroForm.value)">
+                                    <input type="date" class="form-control form-control-user" formControlName="fecha1">
+                                    <input type="date" class="form-control form-control-user" formControlName="fecha2">
+                                    <button class="btn btn-primary btn-user btn-block">Buscar</button>
+                                </form>
+                            </div>
+                        </div>
+            </div>
             <div class="table-responsive">
                 <table class="table table-bordered" id="usuarios" width="100%" cellspacing="0">
                     <thead>
@@ -11,12 +26,18 @@
                         </tr>
                     </thead>
                        <tbody>
-                           <tr *ngFor="let trazabilidad of trazabilidades">
+                           <tr *ngFor="let trazabilidad of trazabilidades | paginate:{ itemsPerPage:10, currentPage:pages}">
                               <th scope="row">{{trazabilidad.evento}}</th>
                               <th>{{trazabilidad.fecha2}}</th>
                            </tr>
                     </tbody>
                 </table>
+                <pagination-controls (pageChange)="pages = $event" previousLabel="Anterior" nextLabel="Siguiente"></pagination-controls>
+
             </div>
         </div>
     </div>
+    </div>
+ </div>
+ 
+

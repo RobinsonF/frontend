@@ -9,6 +9,7 @@ import { auditoriaInterface } from 'src/app/modelos/auditoria.interface';
 import { parametoInterface} from 'src/app/modelos/parametro.interface';
 import {HttpClient, HttpHeaders} from '@angular/common/http';
 import { Observable } from 'rxjs';
+import { filtroInterface } from 'src/app/modelos/filtro.interface';
 
 @Injectable({
   providedIn: 'root'
@@ -30,6 +31,11 @@ export class ApiService {
 
   obtenerAuditorias(id:any):Observable<auditoriaInterface[]>{
     let direccion = this.url + "auditoria/listaAuditoria?id=" + id;
+    return this.http.get<auditoriaInterface[]>(direccion);
+  }
+
+  obtenerAuditoriaFecha(form:filtroInterface):Observable<auditoriaInterface[]>{
+    let direccion = this.url + "auditoria/listaAuditoriaFecha?fecha1=" + form.fecha1 + "&fecha2=" + form.fecha2 + "&id=" + form.id_usuario;
     return this.http.get<auditoriaInterface[]>(direccion);
   }
 
