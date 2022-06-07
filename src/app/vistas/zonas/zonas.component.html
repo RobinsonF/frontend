@@ -19,6 +19,7 @@
                                     <th>ID</th>
                                     <th>Nombre</th>
                                     <th>Nombre ciudad</th>
+                                    <th>Número ordenes de trabajo</th>
                                     <th>Editar</th>
                                     <th>Borrar</th>
                                 </tr>
@@ -28,6 +29,7 @@
                                         <th>{{zona.idZona}}</th>
                                         <th>{{zona.nombre}}</th>
                                         <th>{{zona.nombreCiudad}}</th>
+                                        <th>{{zona.numeroOrdenes}}</th>                                   
                                         <th (click)="editarZona(zona.idZona)"><img src="assets/img/editar.png" width="30" height="30" style="float: left;margin-left: 15px" alt=""></th>
                                         <th (click)="eliminarZona(zona.idZona)"><img src="assets/img/eliminar.png" width="30" height="30" style="float: left;margin-left: 15px" alt=""></th>
                                     </tr>

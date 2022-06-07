@@ -19,6 +19,7 @@ export class CuadrillasComponent implements OnInit {
 
   ngOnInit(): void {
     this.api.obtenerCuadrillas().subscribe(data=>{
+      console.log(data);
       this.cuadrillas = data;
     });
   }

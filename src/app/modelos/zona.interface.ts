@@ -6,4 +6,5 @@ export interface zonaInterface{
     limiteOccidente:string;
     limiteOriente:string;
     limiteSur:string;
+    numeroOrdenes:string;
 }
