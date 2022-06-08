@@ -3,7 +3,59 @@
     <div id="content-wrapper" class="d-flex flex-column">
         <div id="content">
             <app-header></app-header>
-            <h1>¡Bienvenidos!</h1>
+            <div class="container-fluid">
+
+                <!-- Page Heading -->
+                <h1 class="m-0 font-weight-bold text-primary">Gestión de Empleados</h1>
+
+                <div>
+                    <a href="http://localhost:8080/reporte/empleados?tipo=PDF" target="_blank" style="width: 170px; height:40px; display: inline-block; margin-block-end: 30px">
+                        <img src="assets/img/pdf.png" width="70" height="70">
+                    </a>
+    
+                    <a href="http://localhost:8080/reporte/empleados?tipo=EXCEL" style="width: 170px; height:40px; display: inline-block">
+                        <img src="assets/img/excel.png" width="70" height="70">
+                    </a>
+                </div>
+
+
+                <!-- DataTales Example -->
+                <div class="card shadow mb-4">
+                    <div class="card-header py-3">
+                        <h6 class="m-0 font-weight-bold text-primary">Listado de Empleados</h6>
+                    </div>
+                    <div class="card-body">
+                        <div class="table-responsive">
+                            <table class="table table-bordered" id="usuarios" width="100%" cellspacing="0">
+                                <thead>
+                                <tr>
+                                    <th>ID</th>
+                                    <th>Nombre</th>
+                                    <th>Apellido</th>
+                                    <th>Cédula</th>
+                                    <th>Cuadrilla</th>
+                                    <th>Editar</th>
+                                    <th>Borrar</th>
+                                </tr>
+                                </thead>
+                                <tbody>
+                                    <tr *ngFor="let empleado of empleados | paginate:{ itemsPerPage:5, currentPage:pages}">
+                                        <th>{{empleado.idEmpleado}}</th>
+                                        <th>{{empleado.nombre}}</th>
+                                        <th>{{empleado.apellido}}</th>
+                                        <th>{{empleado.cedula}}</th>
+                                        <th>{{empleado.nombreCuadrilla}}</th>
+                                        <th><img src="assets/img/editar.png" width="30" height="30" style="float: left;margin-left: 15px" alt=""></th>
+                                        <th (click)="eliminarEmpleado(empleado.idEmpleado)"><img src="assets/img/eliminar.png" width="30" height="30" style="float: left;margin-left: 15px" alt=""></th>                                   
+                                    </tr>
+                                </tbody>
+                            </table>
+                            <pagination-controls (pageChange)="pages = $event" previousLabel="Anterior" nextLabel="Siguiente"></pagination-controls>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
         </div>
         <app-footer></app-footer>
     </div>

@@ -27,4 +27,9 @@ export class EmpleadoService {
     return this.http.put<responseInterface>(direccion, form);
   }
 
+  obtenerEmpleadosPorUsuario(id:any):Observable<empleadoInterface[]>{
+    let direccion = this.url + "empleado/listaEmpleadoUsuario?id="+id;
+    return this.http.get<empleadoInterface[]>(direccion);
+  }
+
 }
