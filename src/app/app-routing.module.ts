@@ -92,4 +92,4 @@ RegistroCiudadComponent, RegistroCuadrillaComponent, RegistroDepartamentoCompone
 RegistroMaterialOrdenTrabajoComponent, RegistroProveedorComponent, RegistroZonaComponent, CuadrillasComponent, ZonasComponent,
 DepartamentosComponent, CiudadesComponent, MaterialesComponent, OrdenesComponent, EmpleadosComponent, TrazabilidadComponent, PasswordComponent,
 EditarCuadrillaComponent, ZonaEditarComponent, MaterialEditarComponent, OrdenEditarComponent, EmpleadoEditarComponent, PerfilUsuarioComponent,
-DashboardProveedorComponent]
+DashboardProveedorComponent, RegistroOrdenProveedorComponent]

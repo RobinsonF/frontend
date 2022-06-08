@@ -3,7 +3,61 @@
     <div id="content-wrapper" class="d-flex flex-column">
         <div id="content">
             <app-header></app-header>
-            <h1>¡Bienvenidos!</h1>
+            <div class="container-fluid">
+
+                <!-- Page Heading -->
+                <h1 class="h3 mb-4 text-gray-800">Registro de ordenes de trabajo</h1>
+
+                <div class="container">
+
+                    <div class="card o-hidden border-0 shadow-lg my-5">
+                        <div class="card-body p-0">
+                            <!-- Nested Row within Card Body -->
+                            <div class="row">
+                                <div class="image">
+                                    <img src="assets/img/orden.png" width="310" height="310" style="float: left;margin-left:55px; float: top; margin-top:35px" alt="">
+                                </div>
+                                <div class="col-lg-7">
+                                    <div class="p-5">
+                                        <form class="user" [formGroup]="registroForm" (ngSubmit)="registrarOrden(registroForm.value)">
+                                            <div class="form-group row">
+                                                <div class="col-sm-6 mb-3 mb-sm-0">
+                                                    <input type="text" class="form-control form-control-user" id="txtlogin" formControlName="nombreTrabajo"
+                                                           placeholder="Nombre de la orden de trabajo">
+                                                </div>
+                                                <div style=" float: top;margin-top: 30px; float: left; margin-left: 20px; width: 300px;">
+                                                    <label for="">Seleccione el nombre de la cuadrilla</label>
+                                                    <select formControlName="nombreCuadrilla">
+                                                        <option *ngFor="let cuadrilla of cuadrillas" [ngValue]="cuadrilla.nombreCuadrilla">{{cuadrilla.nombreCuadrilla}}</option>
+                                                    </select>
+                                                </div>
+                                                <div style="float: end;margin-block-end: 20px; float: top;margin-top: 30px; float: left; margin-left: 20px; width: 300px;">
+                                                    <label for="">Seleccione el nombre de la zona</label>
+                                                    <select formControlName="nombreZona">
+                                                        <option *ngFor="let zona of zonas" [ngValue]="zona.nombre">{{zona.nombre}}</option>
+                                                    </select>
+                                                </div>
+
+                                                <div class="col-sm-6 mb-3 mb-sm-0">
+                                                    <input type="date" class="form-control form-control-user" id="txtFecha" formControlName="fechaInicial"
+                                                           placeholder="Fecha de inicio">
+                                                </div>
+                                            </div>
+                                            <div class="alert alert-danger" *ngIf="errorForm">
+                                                <p>{{errorMensaje}}</p>
+                                            </div>
+                                            <button class="btn btn-primary btn-user btn-block">Registrar</button>
+                                        </form>
+                                        <hr>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+
+            </div>
         </div>
         <app-footer></app-footer>
     </div>
