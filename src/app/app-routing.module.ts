@@ -30,6 +30,15 @@ import { MaterialEditarComponent } from './vistas/material-editar/material-edita
 import { OrdenEditarComponent } from './vistas/orden-editar/orden-editar.component';
 import { EmpleadoEditarComponent } from './vistas/empleado-editar/empleado-editar.component';
 import { PerfilUsuarioComponent } from './vistas/perfil-usuario/perfil-usuario.component';
+import { DashboardProveedorComponent } from './vistas/dashboard-proveedor/dashboard-proveedor.component';
+import { RegistroCuadrillaProveedorComponent } from './vistas/registro-cuadrilla-proveedor/registro-cuadrilla-proveedor.component';
+import { RegistroMaterialProveedorComponent } from './vistas/registro-material-proveedor/registro-material-proveedor.component';
+import { RegistroOrdenProveedorComponent } from './vistas/registro-orden-proveedor/registro-orden-proveedor.component';
+import { RegistroEmpleadoProveedorComponent } from './vistas/registro-empleado-proveedor/registro-empleado-proveedor.component';
+import { CuadrillasProveedorComponent } from './vistas/cuadrillas-proveedor/cuadrillas-proveedor.component';
+import { MaterialesProveedorComponent } from './vistas/materiales-proveedor/materiales-proveedor.component';
+import { OrdenesProveedorComponent } from './vistas/ordenes-proveedor/ordenes-proveedor.component';
+import { EmpleadosProveedorComponent } from './vistas/empleados-proveedor/empleados-proveedor.component';
 
 const routes: Routes = [
     {path: '', redirectTo:'login',pathMatch:'full'},
@@ -61,7 +70,16 @@ const routes: Routes = [
     {path: 'editarMaterial/:id', component:MaterialEditarComponent},
     {path: 'editarOrden/:id', component:OrdenEditarComponent},
     {path: 'editarEmpleado/:id', component:EmpleadoEditarComponent},
-    {path: 'perfilUsuario/:id',component:PerfilUsuarioComponent}
+    {path: 'perfilUsuario/:id',component:PerfilUsuarioComponent},
+    {path: 'dashboardP', component:DashboardProveedorComponent},
+    {path: 'registroCuadrillaP', component: RegistroCuadrillaProveedorComponent},
+    {path: 'registroMaterialP', component: RegistroMaterialProveedorComponent},
+    {path: 'registroOrdenP', component: RegistroOrdenProveedorComponent},
+    {path: 'registroEmpleadoP', component: RegistroEmpleadoProveedorComponent},
+    {path: 'cuadrillasP', component: CuadrillasProveedorComponent},
+    {path: 'materialesP', component: MaterialesProveedorComponent},
+    {path: 'ordenesP', component: OrdenesProveedorComponent},
+    {path: 'empleadosP', component: EmpleadosProveedorComponent},
 ];
 
 @NgModule({
@@ -73,4 +91,5 @@ export const routingComponents = [LoginComponent, DashboardComponent, NuevoCompo
 RegistroCiudadComponent, RegistroCuadrillaComponent, RegistroDepartamentoComponent, RegistroEmpleadoComponent, RegistroMaterialComponent, 
 RegistroMaterialOrdenTrabajoComponent, RegistroProveedorComponent, RegistroZonaComponent, CuadrillasComponent, ZonasComponent,
 DepartamentosComponent, CiudadesComponent, MaterialesComponent, OrdenesComponent, EmpleadosComponent, TrazabilidadComponent, PasswordComponent,
-EditarCuadrillaComponent, ZonaEditarComponent, MaterialEditarComponent, OrdenEditarComponent, EmpleadoEditarComponent, PerfilUsuarioComponent]
+EditarCuadrillaComponent, ZonaEditarComponent, MaterialEditarComponent, OrdenEditarComponent, EmpleadoEditarComponent, PerfilUsuarioComponent,
+DashboardProveedorComponent]

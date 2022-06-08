@@ -34,6 +34,16 @@ import { OrdenEditarComponent } from './vistas/orden-editar/orden-editar.compone
 import { EmpleadoEditarComponent } from './vistas/empleado-editar/empleado-editar.component';
 import { NgxPaginationModule } from 'ngx-pagination';
 import { PerfilUsuarioComponent } from './vistas/perfil-usuario/perfil-usuario.component';
+import { DashboardProveedorComponent } from './vistas/dashboard-proveedor/dashboard-proveedor.component';
+import { MenuProveedorComponent } from './plantillas/menu-proveedor/menu-proveedor.component';
+import { RegistroCuadrillaProveedorComponent } from './vistas/registro-cuadrilla-proveedor/registro-cuadrilla-proveedor.component';
+import { RegistroMaterialProveedorComponent } from './vistas/registro-material-proveedor/registro-material-proveedor.component';
+import { RegistroOrdenProveedorComponent } from './vistas/registro-orden-proveedor/registro-orden-proveedor.component';
+import { RegistroEmpleadoProveedorComponent } from './vistas/registro-empleado-proveedor/registro-empleado-proveedor.component';
+import { CuadrillasProveedorComponent } from './vistas/cuadrillas-proveedor/cuadrillas-proveedor.component';
+import { MaterialesProveedorComponent } from './vistas/materiales-proveedor/materiales-proveedor.component';
+import { OrdenesProveedorComponent } from './vistas/ordenes-proveedor/ordenes-proveedor.component';
+import { EmpleadosProveedorComponent } from './vistas/empleados-proveedor/empleados-proveedor.component';
 
 @NgModule({
   declarations: [
@@ -66,7 +76,17 @@ import { PerfilUsuarioComponent } from './vistas/perfil-usuario/perfil-usuario.c
     MaterialEditarComponent,
     OrdenEditarComponent,
     EmpleadoEditarComponent,
-    PerfilUsuarioComponent
+    PerfilUsuarioComponent,
+    DashboardProveedorComponent,
+    MenuProveedorComponent,
+    RegistroCuadrillaProveedorComponent,
+    RegistroMaterialProveedorComponent,
+    RegistroOrdenProveedorComponent,
+    RegistroEmpleadoProveedorComponent,
+    CuadrillasProveedorComponent,
+    MaterialesProveedorComponent,
+    OrdenesProveedorComponent,
+    EmpleadosProveedorComponent
   ],
   imports: [
     BrowserModule,

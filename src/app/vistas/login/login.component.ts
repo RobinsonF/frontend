@@ -62,7 +62,11 @@ export class LoginComponent implements OnInit {
                      this.error = false;
                      this.error2 = false;
                      this.error3 = false;
-                     this.router.navigate(['dashboard']);
+                     if(data.rol=="Proveedor"){
+                      this.router.navigate(['dashboardP']);
+                     }else{
+                      this.router.navigate(['dashboard']);
+                     }
                    }
                  }else{
                    this.error = true;
