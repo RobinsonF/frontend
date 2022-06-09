@@ -4,6 +4,7 @@ import { cuadrillaInterface } from 'src/app/modelos/cuadrilla.interface';
 import { usuarioCuadrillaInterface } from 'src/app/modelos/usuarioCuadrilla.interface';
 import { CuadrillaService } from 'src/app/servicios/api/cuadrilla.service';
 import { ApiService } from 'src/app/servicios/api/api.service';
+import { AuditoriaService } from 'src/app/servicios/api/auditoria.service';
 
 @Component({
   selector: 'app-registro-cuadrilla-proveedor',
@@ -21,7 +22,7 @@ export class RegistroCuadrillaProveedorComponent implements OnInit {
   idCuadrilla:any;
   usuarioCuadrillas:usuarioCuadrillaInterface;
 
-  constructor(private api:CuadrillaService, private api2:ApiService) { }
+  constructor(private api:CuadrillaService, private api2:ApiService, private api3:AuditoriaService) { }
 
   errorForm:boolean = false;
   errorMensaje:any = "";
@@ -50,6 +51,11 @@ export class RegistroCuadrillaProveedorComponent implements OnInit {
           dato.usuario = this.id;
           this.usuarioCuadrillas = dato;
           this.api.crearCuadrillaUsuario(this.usuarioCuadrillas).subscribe(data7=>{
+            let auditoria:any = [];
+            auditoria.id_usuario = this.id;
+            auditoria.evento = "Creo la cuadrilla con el nombre: " + form.nombreCuadrilla;
+            this.api3.crearAuditoria(auditoria).subscribe(data89=>{
+            });
             alert(data.mensaje);
             location.reload();
           });

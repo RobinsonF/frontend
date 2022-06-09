@@ -3,6 +3,7 @@ import { EmpleadoService } from 'src/app/servicios/api/empleado.service';
 import { empleadoInterface } from 'src/app/modelos/empleado.interface';
 import { Router } from '@angular/router';
 import { ApiService } from 'src/app/servicios/api/api.service';
+import { AuditoriaService } from 'src/app/servicios/api/auditoria.service';
 
 @Component({
   selector: 'app-empleados-proveedor',
@@ -16,12 +17,14 @@ export class EmpleadosProveedorComponent implements OnInit {
   empleados:empleadoInterface[];
   empleado1:empleadoInterface;
   usuario:any = "";
+  id:any;
 
-  constructor(private api:EmpleadoService, private api2:ApiService,private router:Router) { }
+  constructor(private api:EmpleadoService, private api2:ApiService, private api3:AuditoriaService,private router:Router) { }
 
   ngOnInit(): void {
     this.usuario = localStorage.getItem('correo');
     this.api2.obtenerIdPorCorreo(this.usuario).subscribe(data=>{
+      this.id = data.mensaje;
       this.api.obtenerEmpleadosPorUsuario(data.mensaje).subscribe(data=>{
         console.log(data);
         this.empleados = data;
@@ -29,7 +32,7 @@ export class EmpleadosProveedorComponent implements OnInit {
     });
   }
 
-  eliminarEmpleado(id:any){
+  eliminarEmpleado(id:any, nombre:any, apellido:any){
     let data1:any = [];
     data1.idEmpleado = id;
     this.empleado1 = data1;
@@ -37,6 +40,11 @@ export class EmpleadosProveedorComponent implements OnInit {
       return;
     }else{
       this.api.eliminarEmpleado(this.empleado1).subscribe(data=>{
+        let auditoria:any = [];
+            auditoria.id_usuario = this.id;
+            auditoria.evento = "Elimino el empleado con el nombre: " + nombre + " " + apellido;
+            this.api3.crearAuditoria(auditoria).subscribe(data89=>{
+            });
         location.reload();
       });
     }

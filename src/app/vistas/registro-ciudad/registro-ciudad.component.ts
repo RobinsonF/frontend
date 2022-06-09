@@ -18,7 +18,7 @@ export class RegistroCiudadComponent implements OnInit {
   listaDepartamento:departamentoInterface[];
 
   registroForm = new FormGroup({
-    nombreZona: new FormControl('', Validators.required),
+    nombre: new FormControl('', Validators.required),
     nombreDepartamento: new FormControl('',Validators.required)
   })
 

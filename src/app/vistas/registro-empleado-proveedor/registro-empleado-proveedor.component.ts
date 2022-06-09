@@ -6,6 +6,7 @@ import { empleadoInterface } from 'src/app/modelos/empleado.interface';
 import { EmpleadoService } from 'src/app/servicios/api/empleado.service';
 import { ApiService } from 'src/app/servicios/api/api.service';
 import { usuarioCuadrillaInterface } from 'src/app/modelos/usuarioCuadrilla.interface';
+import { AuditoriaService } from 'src/app/servicios/api/auditoria.service';
 
 @Component({
   selector: 'app-registro-empleado-proveedor',
@@ -23,20 +24,22 @@ export class RegistroEmpleadoProveedorComponent implements OnInit {
     nombreCuadrilla: new FormControl('',Validators.required)
   })
 
-  constructor(private api1:CuadrillaService, private api2:EmpleadoService, private api3:ApiService) { }
+  constructor(private api1:CuadrillaService, private api2:EmpleadoService, private api3:ApiService, private api4:AuditoriaService) { }
 
   errorForm:boolean = false;
   errorMensaje:any = "";
+  id:any;
   usuario:any = "";
   usuarioCuadrillas:usuarioCuadrillaInterface;
 
   ngOnInit(): void {
     this.usuario = localStorage.getItem('correo');
     this.api3.obtenerIdPorCorreo(this.usuario).subscribe(data=>{
+      this.id = data.mensaje;
       this.api1.obtenerCuadrillaPorUsuario(data.mensaje).subscribe(data=>{
         this.cuadrillas = data;
       });
-    })
+    });
    
   }
 
@@ -47,6 +50,11 @@ export class RegistroEmpleadoProveedorComponent implements OnInit {
     }else{
       this.api2.crearEmpleado(form).subscribe(data=>{
         if(data.mensaje == "Registrado correctamente"){
+          let auditoria:any = [];
+            auditoria.id_usuario = this.id;
+            auditoria.evento = "Creo el empleado con el nombre: " + form.nombre + " " + form.apellido;
+            this.api4.crearAuditoria(auditoria).subscribe(data89=>{
+            });
           alert(data.mensaje);
           location.reload();
         }

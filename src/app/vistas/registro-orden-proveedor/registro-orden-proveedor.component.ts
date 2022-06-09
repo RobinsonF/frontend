@@ -8,6 +8,7 @@ import { zonaInterface } from 'src/app/modelos/zona.interface';
 import { cuadrillaInterface } from 'src/app/modelos/cuadrilla.interface';
 import { ordenInterface } from 'src/app/modelos/orden.interface';
 import { OrdenService } from 'src/app/servicios/api/orden.service';
+import { AuditoriaService } from 'src/app/servicios/api/auditoria.service';
 
 
 @Component({
@@ -18,6 +19,7 @@ import { OrdenService } from 'src/app/servicios/api/orden.service';
 export class RegistroOrdenProveedorComponent implements OnInit {
 
   usuario:any = "";
+  id:any;
 
   registroForm = new FormGroup({
     nombreTrabajo: new FormControl('', Validators.required),
@@ -26,7 +28,7 @@ export class RegistroOrdenProveedorComponent implements OnInit {
     fechaInicial: new FormControl('',Validators.required)
   })
 
-  constructor(private api1:ZonaService, private api2:CuadrillaService, private api3:ApiService, private api4:OrdenService,private router:Router) { }
+  constructor(private api1:ZonaService, private api2:CuadrillaService, private api3:ApiService, private api4:OrdenService, private api5:AuditoriaService,private router:Router) { }
 
   errorForm:boolean = false;
   errorMensaje:any = "";
@@ -37,6 +39,7 @@ export class RegistroOrdenProveedorComponent implements OnInit {
   ngOnInit(): void {
     this.usuario = localStorage.getItem('correo');
     this.api3.obtenerIdPorCorreo(this.usuario).subscribe(data=>{
+      this.id = data.mensaje;
       this.api2.obtenerCuadrillaPorUsuario(data.mensaje).subscribe(data=>{
         this.cuadrillas = data;
       });
@@ -54,6 +57,11 @@ export class RegistroOrdenProveedorComponent implements OnInit {
     }else{
       this.api4.crearOrden(form).subscribe(data=>{
         if(data.mensaje=="Registrado correctamente"){
+          let auditoria:any = [];
+            auditoria.id_usuario = this.id;
+            auditoria.evento = "Creo una nueva orden";
+            this.api5.crearAuditoria(auditoria).subscribe(data89=>{
+            });
           alert(data.mensaje);
           location.reload();
         }
