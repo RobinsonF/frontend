@@ -63,6 +63,14 @@ import { EditarMaterialGuard } from './vigilantes/editar-material.guard';
 import { EditarOrdenGuard } from './vigilantes/editar-orden.guard';
 import { EditarEmpleadoGuard } from './vigilantes/editar-empleado.guard';
 import { PerfilUsuarioGuard } from './vigilantes/perfil-usuario.guard';
+import { RegistroCuadrillaPGuard } from './vigilantes/proveedor/registro-cuadrilla-p.guard';
+import { RegistroMaterialPGuard } from './vigilantes/proveedor/registro-material-p.guard';
+import { RegistroOrdenPGuard } from './vigilantes/proveedor/registro-orden-p.guard';
+import { RegistroEmpleadoPGuard } from './vigilantes/proveedor/registro-empleado-p.guard';
+import { CuadrillasPGuard } from './vigilantes/proveedor/cuadrillas-p.guard';
+import { MaterialesPGuard } from './vigilantes/proveedor/materiales-p.guard';
+import { OrdenesPGuard } from './vigilantes/proveedor/ordenes-p.guard';
+import { EmpleadosPGuard } from './vigilantes/proveedor/empleados-p.guard';
 
 const routes: Routes = [
     {path: '', redirectTo:'login',pathMatch:'full'},
@@ -146,14 +154,30 @@ const routes: Routes = [
     {path: 'dashboardP', component:DashboardProveedorComponent,
     canActivate:[VigilanteDashboardPGuard]
     },
-    {path: 'registroCuadrillaP', component: RegistroCuadrillaProveedorComponent},
-    {path: 'registroMaterialP', component: RegistroMaterialProveedorComponent},
-    {path: 'registroOrdenP', component: RegistroOrdenProveedorComponent},
-    {path: 'registroEmpleadoP', component: RegistroEmpleadoProveedorComponent},
-    {path: 'cuadrillasP', component: CuadrillasProveedorComponent},
-    {path: 'materialesP', component: MaterialesProveedorComponent},
-    {path: 'ordenesP', component: OrdenesProveedorComponent},
-    {path: 'empleadosP', component: EmpleadosProveedorComponent},
+    {path: 'registroCuadrillaP', component: RegistroCuadrillaProveedorComponent,
+    canActivate:[RegistroCuadrillaPGuard]
+    },
+    {path: 'registroMaterialP', component: RegistroMaterialProveedorComponent,
+    canActivate:[RegistroMaterialPGuard]
+    },
+    {path: 'registroOrdenP', component: RegistroOrdenProveedorComponent,
+    canActivate:[RegistroOrdenPGuard]
+    },
+    {path: 'registroEmpleadoP', component: RegistroEmpleadoProveedorComponent,
+    canActivate:[RegistroEmpleadoPGuard]
+    },
+    {path: 'cuadrillasP', component: CuadrillasProveedorComponent,
+    canActivate:[CuadrillasPGuard]
+    },
+    {path: 'materialesP', component: MaterialesProveedorComponent,
+    canActivate:[MaterialesPGuard]
+    },
+    {path: 'ordenesP', component: OrdenesProveedorComponent,
+    canActivate:[OrdenesPGuard]
+    },
+    {path: 'empleadosP', component: EmpleadosProveedorComponent,
+    canActivate:[EmpleadosPGuard]
+    },
 ];
 
 @NgModule({
