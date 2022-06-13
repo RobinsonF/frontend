@@ -4,7 +4,7 @@ import { Router, RouterLink } from '@angular/router';
 import { listaUsuariosInterface } from 'src/app/modelos/listaUsuarios.interface';
 import { eliminarUsuarioInterface } from 'src/app/modelos/eliminarUsuario.interface';
 import { window } from 'rxjs';
-
+import { MatTableDataSource } from '@angular/material/table';
 
 @Component({
   selector: 'app-usuarios',
@@ -15,8 +15,11 @@ export class UsuariosComponent implements OnInit {
 
   pages: number = 1;
 
+  filtro:any;
+
   usuarios:listaUsuariosInterface[];
   usuario:eliminarUsuarioInterface;
+  dataSource:any;
   
   constructor(private api:ApiService, private router:Router) { }
   
@@ -24,8 +27,15 @@ export class UsuariosComponent implements OnInit {
     this.api.obtenerUsuarios().subscribe(data=>
       {
         this.usuarios = data;
+        this.dataSource = new MatTableDataSource(data);
       });
   }
+
+  filtrar(event: Event) {
+    const filtro = (event.target as HTMLInputElement).value;
+    this.dataSource.filter = filtro.trim().toLowerCase();
+  }  
+  
   editarUsuario(id:any){
     this.router.navigate(['editar', id]);
   }

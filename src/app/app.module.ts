@@ -44,6 +44,9 @@ import { CuadrillasProveedorComponent } from './vistas/cuadrillas-proveedor/cuad
 import { MaterialesProveedorComponent } from './vistas/materiales-proveedor/materiales-proveedor.component';
 import { OrdenesProveedorComponent } from './vistas/ordenes-proveedor/ordenes-proveedor.component';
 import { EmpleadosProveedorComponent } from './vistas/empleados-proveedor/empleados-proveedor.component';
+import { MatTableModule } from '@angular/material/table';
+import { MatInputModule } from '@angular/material/input';
+
 
 @NgModule({
   declarations: [
@@ -94,7 +97,9 @@ import { EmpleadosProveedorComponent } from './vistas/empleados-proveedor/emplea
     ReactiveFormsModule, 
     FormsModule,
     HttpClientModule,
-    NgxPaginationModule
+    NgxPaginationModule,
+    MatTableModule,
+    MatInputModule
   ],
   providers: [],
   bootstrap: [AppComponent]

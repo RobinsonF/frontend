@@ -39,21 +39,49 @@ import { CuadrillasProveedorComponent } from './vistas/cuadrillas-proveedor/cuad
 import { MaterialesProveedorComponent } from './vistas/materiales-proveedor/materiales-proveedor.component';
 import { OrdenesProveedorComponent } from './vistas/ordenes-proveedor/ordenes-proveedor.component';
 import { EmpleadosProveedorComponent } from './vistas/empleados-proveedor/empleados-proveedor.component';
+import { VigilanteGuard } from './vigilante.guard';
+import { VigilanteDashboardPGuard } from './vigilantes/vigilante-dashboard-p.guard';
+import { VigilanteUsuariosGuard } from './vigilantes/vigilante-usuarios.guard';
+import { VigilanteCuadrillasGuard } from './vigilantes/vigilante-cuadrillas.guard';
+import { VigilanteZonasGuard } from './vigilantes/vigilante-zonas.guard';
+import { VigilanteDepartamentosGuard } from './vigilantes/vigilante-departamentos.guard';
+import { VigilanteCiudadesGuard } from './vigilantes/vigilante-ciudades.guard';
+import { VigilanteMaterialesGuard } from './vigilantes/vigilante-materiales.guard';
+import { VigilanteOrdenesGuard } from './vigilantes/vigilante-ordenes.guard';
+import { VigilanteEmpleadosGuard } from './vigilantes/vigilante-empleados.guard';
 
 const routes: Routes = [
     {path: '', redirectTo:'login',pathMatch:'full'},
     {path:'login', component:LoginComponent},
     {path:'nuevo', component:NuevoComponent},
     {path:'editar/:id', component:EditarComponent},
-    {path:'dashboard', component:DashboardComponent},
-    {path:'usuarios', component:UsuariosComponent},
-    {path: 'cuadrillas', component:CuadrillasComponent},
-    {path: 'zonas', component:ZonasComponent},
-    {path: 'departamentos', component:DepartamentosComponent},
-    {path: 'ciudades', component:CiudadesComponent},
-    {path: 'materiales', component:MaterialesComponent},
-    {path: 'ordenes', component:OrdenesComponent},
-    {path: 'empleados', component:EmpleadosComponent},
+    {path:'dashboard', component:DashboardComponent,
+    canActivate:[VigilanteGuard]
+    },
+    {path:'usuarios', component:UsuariosComponent,
+    canActivate:[VigilanteUsuariosGuard]
+    },
+    {path: 'cuadrillas', component:CuadrillasComponent,
+    canActivate:[VigilanteCuadrillasGuard]
+    },
+    {path: 'zonas', component:ZonasComponent,
+    canActivate:[VigilanteZonasGuard]
+    },
+    {path: 'departamentos', component:DepartamentosComponent,
+    canActivate:[VigilanteDepartamentosGuard]
+    },
+    {path: 'ciudades', component:CiudadesComponent,
+    canActivate:[VigilanteCiudadesGuard]
+    },
+    {path: 'materiales', component:MaterialesComponent,
+    canActivate:[VigilanteMaterialesGuard]
+    },
+    {path: 'ordenes', component:OrdenesComponent,
+    canActivate:[VigilanteOrdenesGuard]
+    },
+    {path: 'empleados', component:EmpleadosComponent,
+    canActivate:[VigilanteEmpleadosGuard]
+    },
     {path: 'registro', component:RegistroComponent},
     {path: 'registroCiudad', component:RegistroCiudadComponent},
     {path: 'registroCuadrilla', component:RegistroCuadrillaComponent},
@@ -71,7 +99,9 @@ const routes: Routes = [
     {path: 'editarOrden/:id', component:OrdenEditarComponent},
     {path: 'editarEmpleado/:id', component:EmpleadoEditarComponent},
     {path: 'perfilUsuario/:id',component:PerfilUsuarioComponent},
-    {path: 'dashboardP', component:DashboardProveedorComponent},
+    {path: 'dashboardP', component:DashboardProveedorComponent,
+    canActivate:[VigilanteDashboardPGuard]
+    },
     {path: 'registroCuadrillaP', component: RegistroCuadrillaProveedorComponent},
     {path: 'registroMaterialP', component: RegistroMaterialProveedorComponent},
     {path: 'registroOrdenP', component: RegistroOrdenProveedorComponent},

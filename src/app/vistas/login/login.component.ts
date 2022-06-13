@@ -57,6 +57,7 @@ export class LoginComponent implements OnInit {
                      this.errorMsj = data.mensaje;
                    }else{
                      localStorage.setItem("correo",this.loginForm.get('correo')?.value);
+                     alert('Logueado correctamente');
                      this.api.setearIntentoCero(form).subscribe(data2=>{
                      });
                      this.error = false;

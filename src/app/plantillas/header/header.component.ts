@@ -23,6 +23,7 @@ export class HeaderComponent implements OnInit {
   }
 
   salir(){
+    localStorage.clear();
     this.router.navigate(['login']);
   }
 

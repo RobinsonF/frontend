@@ -140,4 +140,9 @@ export class ApiService {
     let direccion = this.url + "usuario/obtenerUsuarioCorreo?correo=" + correo;
     return this.http.get<responseInterface>(direccion);
   }
+
+  obtenerRol(correo:any):Observable<responseInterface>{
+    let direccion = this.url + "usuario/usuarioRol?correo=" + correo;
+    return this.http.get<responseInterface>(direccion);
+  }
 }
