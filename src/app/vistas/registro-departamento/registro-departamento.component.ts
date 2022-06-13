@@ -14,7 +14,7 @@ import { Observable } from 'rxjs';
 export class RegistroDepartamentoComponent implements OnInit {
 
   registroForm = new FormGroup({
-    nombre: new FormControl('', Validators.required),
+    nombre: new FormControl('', [Validators.required, Validators.pattern("[a]\\s[a]")]),
   })
 
   constructor(private api:DepartamentoService) { }
