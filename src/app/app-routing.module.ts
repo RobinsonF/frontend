@@ -49,6 +49,13 @@ import { VigilanteCiudadesGuard } from './vigilantes/vigilante-ciudades.guard';
 import { VigilanteMaterialesGuard } from './vigilantes/vigilante-materiales.guard';
 import { VigilanteOrdenesGuard } from './vigilantes/vigilante-ordenes.guard';
 import { VigilanteEmpleadosGuard } from './vigilantes/vigilante-empleados.guard';
+import { RegistroCiudadGuard } from './vigilantes/registro-ciudad.guard';
+import { RegistroCuadrillaGuard } from './vigilantes/registro-cuadrilla.guard';
+import { RegistroDepartamentoGuard } from './vigilantes/registro-departamento.guard';
+import { RegistroEmpleadoGuard } from './vigilantes/registro-empleado.guard';
+import { RegistroMaterialGuard } from './vigilantes/registro-material.guard';
+import { RegistroProveedorGuard } from './vigilantes/registro-proveedor.guard';
+import { RegistroZonaGuard } from './vigilantes/registro-zona.guard';
 
 const routes: Routes = [
     {path: '', redirectTo:'login',pathMatch:'full'},
@@ -83,14 +90,30 @@ const routes: Routes = [
     canActivate:[VigilanteEmpleadosGuard]
     },
     {path: 'registro', component:RegistroComponent},
-    {path: 'registroCiudad', component:RegistroCiudadComponent},
-    {path: 'registroCuadrilla', component:RegistroCuadrillaComponent},
-    {path: 'registroDepartamento', component:RegistroDepartamentoComponent},
-    {path: 'registroEmpleado', component:RegistroEmpleadoComponent},
-    {path: 'registroMaterial', component:RegistroMaterialComponent},
-    {path: 'registroTrabajo', component:RegistroMaterialOrdenTrabajoComponent},
-    {path: 'registroProveedor', component:RegistroProveedorComponent},
-    {path: 'registroZona', component:RegistroZonaComponent},
+    {path: 'registroCiudad', component:RegistroCiudadComponent,
+    canActivate:[RegistroCiudadGuard]
+    },
+    {path: 'registroCuadrilla', component:RegistroCuadrillaComponent,
+    canActivate:[RegistroCuadrillaGuard]
+    },
+    {path: 'registroDepartamento', component:RegistroDepartamentoComponent,
+    canActivate:[RegistroDepartamentoGuard]
+    },
+    {path: 'registroEmpleado', component:RegistroEmpleadoComponent,
+    canActivate:[RegistroEmpleadoGuard]
+    },
+    {path: 'registroMaterial', component:RegistroMaterialComponent,
+    canActivate:[RegistroMaterialGuard]
+    },
+    {path: 'registroTrabajo', component:RegistroMaterialOrdenTrabajoComponent,
+    canActivate:[RegistroMaterialGuard]
+    },
+    {path: 'registroProveedor', component:RegistroProveedorComponent,
+    canActivate:[RegistroProveedorGuard]
+    },
+    {path: 'registroZona', component:RegistroZonaComponent,
+    canActivate:[RegistroZonaGuard]
+    },
     {path: 'trazabilidad/:id', component:TrazabilidadComponent},
     {path: 'password', component:PasswordComponent},
     {path: 'editarCuadrilla/:id', component:EditarCuadrillaComponent},
