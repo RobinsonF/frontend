@@ -56,6 +56,13 @@ import { RegistroEmpleadoGuard } from './vigilantes/registro-empleado.guard';
 import { RegistroMaterialGuard } from './vigilantes/registro-material.guard';
 import { RegistroProveedorGuard } from './vigilantes/registro-proveedor.guard';
 import { RegistroZonaGuard } from './vigilantes/registro-zona.guard';
+import { TrazabilidadGuard } from './vigilantes/trazabilidad.guard';
+import { EditarCuadrillaGuard } from './vigilantes/editar-cuadrilla.guard';
+import { EditarZonaGuard } from './vigilantes/editar-zona.guard';
+import { EditarMaterialGuard } from './vigilantes/editar-material.guard';
+import { EditarOrdenGuard } from './vigilantes/editar-orden.guard';
+import { EditarEmpleadoGuard } from './vigilantes/editar-empleado.guard';
+import { PerfilUsuarioGuard } from './vigilantes/perfil-usuario.guard';
 
 const routes: Routes = [
     {path: '', redirectTo:'login',pathMatch:'full'},
@@ -114,14 +121,28 @@ const routes: Routes = [
     {path: 'registroZona', component:RegistroZonaComponent,
     canActivate:[RegistroZonaGuard]
     },
-    {path: 'trazabilidad/:id', component:TrazabilidadComponent},
+    {path: 'trazabilidad/:id', component:TrazabilidadComponent,
+    canActivate:[TrazabilidadGuard]
+    },
     {path: 'password', component:PasswordComponent},
-    {path: 'editarCuadrilla/:id', component:EditarCuadrillaComponent},
-    {path: 'editarZona/:id', component:ZonaEditarComponent},
-    {path: 'editarMaterial/:id', component:MaterialEditarComponent},
-    {path: 'editarOrden/:id', component:OrdenEditarComponent},
-    {path: 'editarEmpleado/:id', component:EmpleadoEditarComponent},
-    {path: 'perfilUsuario/:id',component:PerfilUsuarioComponent},
+    {path: 'editarCuadrilla/:id', component:EditarCuadrillaComponent,
+    canActivate:[EditarCuadrillaGuard]
+    },
+    {path: 'editarZona/:id', component:ZonaEditarComponent,
+    canActivate:[EditarZonaGuard]
+    },
+    {path: 'editarMaterial/:id', component:MaterialEditarComponent,
+    canActivate:[EditarMaterialGuard]
+    },
+    {path: 'editarOrden/:id', component:OrdenEditarComponent,
+    canActivate:[EditarOrdenGuard]
+    },
+    {path: 'editarEmpleado/:id', component:EmpleadoEditarComponent,
+    canActivate:[EditarEmpleadoGuard]
+    },
+    {path: 'perfilUsuario/:id',component:PerfilUsuarioComponent,
+    canActivate:[PerfilUsuarioGuard]
+    },
     {path: 'dashboardP', component:DashboardProveedorComponent,
     canActivate:[VigilanteDashboardPGuard]
     },
