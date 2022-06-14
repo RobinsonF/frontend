@@ -28,4 +28,9 @@ export class ZonaService {
     return this.http.put<responseInterface>(direccion, form);
   }
 
+  buscarPorId(id:any):Observable<zonaInterface>{
+    let direccion = this.url + "zona/obtenerZona?id=" + id;
+    return this.http.get<zonaInterface>(direccion);
+  }
+
 }

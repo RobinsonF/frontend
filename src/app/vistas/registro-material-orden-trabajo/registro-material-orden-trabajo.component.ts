@@ -18,7 +18,8 @@ export class RegistroMaterialOrdenTrabajoComponent implements OnInit {
     nombreTrabajo: new FormControl('', Validators.required),
     nombreZona: new FormControl('',Validators.required),
     nombreCuadrilla: new FormControl('',Validators.required),
-    fechaInicial: new FormControl('',Validators.required)
+    fechaInicial: new FormControl('',Validators.required),
+    direccion: new FormControl('', Validators.required)
   })
 
   constructor(private api1:ZonaService, private api2:CuadrillaService, private api3:OrdenService) { }

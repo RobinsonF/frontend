@@ -4,4 +4,5 @@ export interface ordenInterface{
     nombreZona:string;
     nombreCuadrilla:string;
     fechaInicial:string;
+    direccion:string;
 }
