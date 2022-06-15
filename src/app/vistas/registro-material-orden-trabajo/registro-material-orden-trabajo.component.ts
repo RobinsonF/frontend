@@ -48,6 +48,8 @@ export class RegistroMaterialOrdenTrabajoComponent implements OnInit {
         if(data.mensaje=="Registrado correctamente"){
           alert(data.mensaje);
           location.reload();
+        }else if(data.mensaje == "La cuadrilla no cuenta con empleados actualmente"){
+          alert(data.mensaje);
         }
       });
     }

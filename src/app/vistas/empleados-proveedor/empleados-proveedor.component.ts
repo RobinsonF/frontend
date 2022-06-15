@@ -48,6 +48,11 @@ export class EmpleadosProveedorComponent implements OnInit {
         location.reload();
       });
     }
-  }
+    }
+
+    editarEmpleado(id:any){
+      this.router.navigate(['editarEmpleado',id]);
+    }
+  
 
 }

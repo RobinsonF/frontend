@@ -57,6 +57,9 @@ export class RegistroEmpleadoProveedorComponent implements OnInit {
             });
           alert(data.mensaje);
           location.reload();
+        }else if(data.mensaje == "La cédula se encuentra en uso"){
+          this.errorForm = true;
+          this.errorMensaje = data.mensaje;
         }
       });
     }

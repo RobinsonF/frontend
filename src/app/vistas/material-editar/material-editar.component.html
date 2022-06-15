@@ -12,11 +12,11 @@
                         <div class="text-center">
                             <h1 class="h4 text-gray-900 mb-4">Datos de material</h1>
                         </div>
-                        <form class="user"  #f="ngForm" novalidate>
+                        <form class="user" [formGroup]="editarForm" (ngSubmit)="editarMaterial(editarForm.value)"  #f="ngForm" novalidate>
                             <div class="form-group row">
                                 <div class="col-sm-6 mb-3 mb-sm-0">
-                                    <input maxlength="8" minlength="4" type="text" class="form-control form-control-user"
-                                        formControlName="nombre" placeholder="Nombre del material">
+                                    <input maxlength="50" minlength="4" type="text" class="form-control form-control-user"
+                                        formControlName="nombreMaterial" placeholder="Nombre del material">
                                 </div>
                                 <div class="col-sm-6 mb-3 mb-sm-0">
                                     <input maxlength="8" minlength="4" type="text" class="form-control form-control-user"
@@ -24,16 +24,9 @@
                                 </div>
                                 
                             </div>
-                            <div class="form-group row">
-                                <div>
-                                    <label for="">Selccione el tipo de material</label>
-                                    <select name="" id="">
-                                        <option value="">Valor 1</option>
-                                    </select>
-                                </div>
-                                
-                            </div>
-                           
+                            <div class="alert alert-danger" *ngIf="error">
+                                <p>{{errorMsj}}</p>
+                            </div>                           
                             <button class="btn btn-primary btn-user btn-block">Guardar</button>
                         </form>
                         <hr>

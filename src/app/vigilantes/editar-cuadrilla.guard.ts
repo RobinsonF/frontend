@@ -17,9 +17,9 @@ export class EditarCuadrillaGuard implements CanActivate {
       this.router.navigate(['login']);
     }else{
       this.api.obtenerRol(this.usuario).subscribe(data=>{
-          if(data.mensaje!='Admin'){
-            this.router.navigate(['dashboardP']);
-          }
+          // if(data.mensaje!='Admin'){
+          //   this.router.navigate(['dashboardP']);
+          // }
       });
     }
   }

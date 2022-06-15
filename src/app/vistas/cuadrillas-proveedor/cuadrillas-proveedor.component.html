@@ -28,6 +28,8 @@
                                     <th>ID</th>
                                     <th>Nombre</th>
                                     <th>Número ordenes de trabajo</th>
+                                    <th>Número de empleados</th>
+                                    <th>Estado</th>
                                     <th>Editar</th>
                                     <th>Borrar</th>
                                 </tr>
@@ -37,7 +39,9 @@
                                         <th>{{cuadrilla.idCuadrilla}}</th>
                                         <th>{{cuadrilla.nombreCuadrilla}}</th>
                                         <th>{{cuadrilla.numeroOrdenes}}</th>
-                                        <th><img src="assets/img/editar.png" width="30" height="30" style="float: left;margin-left: 15px" alt=""></th>
+                                        <th>{{cuadrilla.numeroEmpleados}}</th>
+                                        <th>{{cuadrilla.estado}}</th>
+                                        <th (click)="editarCuadrilla(cuadrilla.idCuadrilla)"><img src="assets/img/editar.png" width="30" height="30" style="float: left;margin-left: 15px" alt=""></th>
                                         <th (click)="eliminarCuadrilla(cuadrilla.idCuadrilla,cuadrilla.nombreCuadrilla)"><img src="assets/img/eliminar.png" width="30" height="30" style="float: left;margin-left: 15px" alt=""></th>
                                     </tr>
                                 </tbody>

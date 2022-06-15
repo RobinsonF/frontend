@@ -21,8 +21,8 @@ export class ZonaEditarComponent implements OnInit {
     limiteOccidente: new FormControl('',Validators.required),
     limiteOriente: new FormControl('',Validators.required),
     limiteSur: new FormControl('',Validators.required),
-  }
-  );
+    idZona: new FormControl('')
+  });
 
   constructor(private api:ZonaService, private activerouter:ActivatedRoute) { }
 
@@ -30,16 +30,35 @@ export class ZonaEditarComponent implements OnInit {
     let zonaId = this.activerouter.snapshot.paramMap.get('id');
     this.api.buscarPorId(zonaId).subscribe(data=>{
       this.datosZona = data;
-      console.log(data);
-      console.log(this.datosZona);
       this.editarForm.setValue({
         'nombre': this.datosZona.nombre,
         'limiteNorte': this.datosZona.limiteNorte,
         'limiteOccidente': this.datosZona.limiteOccidente,
         'limiteOriente': this.datosZona.limiteOriente,
         'limiteSur': this.datosZona.limiteSur,
-      })
+        'idZona': zonaId
+      });
     });
+  }
+
+  editarZona(form:zonaInterface){
+    console.log(form);
+    console.log(this.editarForm.invalid);
+    console.log(this.editarForm.valid);
+    if(!this.editarForm.invalid){
+      this.error = true;
+      this.errorMsj = 'Revise los campos';
+    }else{
+      this.api.editarZona(form).subscribe(data=>{
+        if(data.mensaje == "El nombre ya se encuentra registrado"){
+          this.error = true;
+          this.errorMsj = data.mensaje;
+        }else{
+          alert(data.mensaje);
+          location.reload();
+        }
+      });
+    }
   }
 
 }

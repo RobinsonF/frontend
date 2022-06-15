@@ -33,4 +33,9 @@ export class ZonaService {
     return this.http.get<zonaInterface>(direccion);
   }
 
+  editarZona(form:zonaInterface):Observable<responseInterface>{
+    let direccion = this.url + "zona/editarZona";
+    return this.http.put<responseInterface>(direccion,form);
+  }
+
 }

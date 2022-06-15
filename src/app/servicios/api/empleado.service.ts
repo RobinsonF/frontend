@@ -32,4 +32,14 @@ export class EmpleadoService {
     return this.http.get<empleadoInterface[]>(direccion);
   }
 
+  obtenerPorId(id:any):Observable<empleadoInterface>{
+    let direccion = this.url + "empleado/obtenerEmpleado?id=" + id;
+    return this.http.get<empleadoInterface>(direccion);
+  }
+
+  editarEmpleado(form:empleadoInterface):Observable<responseInterface>{
+    let direccion = this.url + "empleado/editarEmpleado";
+    return this.http.put<responseInterface>(direccion,form);
+  }
+
 }

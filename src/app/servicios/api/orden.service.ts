@@ -32,4 +32,14 @@ export class OrdenService {
     let direccion = this.url + "orden/listaOrdenUsuario?id=" + id;
     return this.http.get<ordenInterface[]>(direccion);
   }
+
+  obtenerPorId(id:any):Observable<ordenInterface>{
+    let direccion = this.url + "orden/obtenerOrden?id=" + id;
+    return this.http.get<ordenInterface>(direccion);
+  }
+
+  editarOrden(form:ordenInterface):Observable<responseInterface>{
+    let direccion = this.url + "orden/editarOrden";
+    return this.http.put<responseInterface>(direccion, form);
+  }
 }

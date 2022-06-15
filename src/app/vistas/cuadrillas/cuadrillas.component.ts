@@ -36,7 +36,13 @@ export class CuadrillasComponent implements OnInit {
       return;
     }else{
       this.api.eliminarCuadrilla(this.cuadrilla1).subscribe(data=>{
-        location.reload();
+        if(data.mensaje== "La cuadrilla no se puede eliminar porque tiene ordenes activas"){
+          alert(data.mensaje);
+        }else if(data.mensaje == "La cuadrilla no se puede eliminar porque tiene empleados activos"){
+          alert(data.mensaje);
+        }else{
+          location.reload();
+        }
       });
     }
   }

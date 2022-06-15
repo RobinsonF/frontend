@@ -12,7 +12,7 @@ import { AuditoriaService } from 'src/app/servicios/api/auditoria.service';
 })
 export class OrdenesProveedorComponent implements OnInit {
 
-  constructor(private api:OrdenService, private api1:ApiService, private api2:AuditoriaService) { }
+  constructor(private api:OrdenService, private api1:ApiService, private api2:AuditoriaService, private router:Router) { }
 
   pages: number = 1;
 
@@ -48,6 +48,10 @@ export class OrdenesProveedorComponent implements OnInit {
         location.reload();
       });
     }
+  }
+
+  editarOrden(id:any){
+    this.router.navigate(['editarOrden',id]);
   }
 
 }

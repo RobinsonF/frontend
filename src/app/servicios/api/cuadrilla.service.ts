@@ -39,6 +39,16 @@ export class CuadrillaService {
     return this.http.get<cuadrillaInterface[]>(direccion);
   }
 
+  obtenerCuadrillaPorId(id:any):Observable<cuadrillaInterface>{
+    let direccion = this.url + "cuadrilla/obtenerCuadrilla?id=" + id;
+    return this.http.get<cuadrillaInterface>(direccion);
+  }
+
+  editarCuadrilla(form:cuadrillaInterface):Observable<responseInterface>{
+    let direccion = this.url + "cuadrilla/editarCuadrilla";
+    return this.http.put<responseInterface>(direccion, form);
+  }
+
   crearCuadrillaUsuario(form:usuarioCuadrillaInterface):Observable<responseInterface>{
     let options = {
       headers: new HttpHeaders({

@@ -46,7 +46,7 @@
                                         <th>{{orden.nombreZona}}</th>
                                         <th>{{orden.fechaInicial}}</th>
                                         <th></th>
-                                        <th><img src="assets/img/editar.png" width="30" height="30" style="float: left;margin-left: 15px" alt=""></th>
+                                        <th (click)="editarOrden(orden.idTrabajo)"><img src="assets/img/editar.png" width="30" height="30" style="float: left;margin-left: 15px" alt=""></th>
                                         <th (click)="elimimarOrden(orden.idTrabajo)"><img src="assets/img/eliminar.png" width="30" height="30" style="float: left;margin-left: 15px" alt=""></th>
                                     </tr>
                                 </tbody>

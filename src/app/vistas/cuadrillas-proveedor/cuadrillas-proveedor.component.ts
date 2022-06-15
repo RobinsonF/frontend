@@ -19,7 +19,7 @@ export class CuadrillasProveedorComponent implements OnInit {
   cuadrillas:cuadrillaInterface[];
   cuadrilla1:cuadrillaInterface;
 
-  constructor(private api:ApiService, private api2:CuadrillaService, private api3:AuditoriaService) { }
+  constructor(private api:ApiService, private api2:CuadrillaService, private api3:AuditoriaService, private router:Router) { }
 
   ngOnInit(): void {
     this.usuario = localStorage.getItem('correo');
@@ -41,14 +41,24 @@ export class CuadrillasProveedorComponent implements OnInit {
       return;
     }else{
       this.api2.eliminarCuadrilla(this.cuadrilla1).subscribe(data=>{
-        let auditoria:any = [];
+        if(data.mensaje== "La cuadrilla no se puede eliminar porque tiene ordenes activas"){
+          alert(data.mensaje);
+        }else if(data.mensaje == "La cuadrilla no se puede eliminar porque tiene empleados activos"){
+          alert(data.mensaje);
+        }else{
+          let auditoria:any = [];
             auditoria.id_usuario = this.id;
             auditoria.evento = "Elimino la cuadrilla: " + nombreCuadrilla;
             this.api3.crearAuditoria(auditoria).subscribe(data89=>{
             });
-        location.reload();
+          location.reload();
+        }
       });
     }
+  }
+
+  editarCuadrilla(id:any){
+    this.router.navigate(['editarCuadrilla',id]);
   }
 
 }

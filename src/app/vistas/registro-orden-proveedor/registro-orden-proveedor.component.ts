@@ -25,7 +25,8 @@ export class RegistroOrdenProveedorComponent implements OnInit {
     nombreTrabajo: new FormControl('', Validators.required),
     nombreZona: new FormControl('',Validators.required),
     nombreCuadrilla: new FormControl('',Validators.required),
-    fechaInicial: new FormControl('',Validators.required)
+    fechaInicial: new FormControl('',Validators.required),
+    direccion: new FormControl('', Validators.required)
   })
 
   constructor(private api1:ZonaService, private api2:CuadrillaService, private api3:ApiService, private api4:OrdenService, private api5:AuditoriaService,private router:Router) { }
@@ -64,6 +65,8 @@ export class RegistroOrdenProveedorComponent implements OnInit {
             });
           alert(data.mensaje);
           location.reload();
+        }else if(data.mensaje == "La cuadrilla no cuenta con empleados actualmente"){
+          alert(data.mensaje);
         }
       });
     }
