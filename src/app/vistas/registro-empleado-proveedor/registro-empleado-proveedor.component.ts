@@ -20,7 +20,7 @@ export class RegistroEmpleadoProveedorComponent implements OnInit {
   registroForm = new FormGroup({
     nombre: new FormControl('', Validators.required),
     apellido: new FormControl('',Validators.required),
-    cedula: new FormControl('',Validators.required),
+    cedula: new FormControl('',[Validators.required, Validators.pattern(/^[0-9,$]*$/)]),
     nombreCuadrilla: new FormControl('',Validators.required)
   })
 

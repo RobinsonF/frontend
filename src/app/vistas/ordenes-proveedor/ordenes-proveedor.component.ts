@@ -18,11 +18,15 @@ export class OrdenesProveedorComponent implements OnInit {
 
   ordenes:ordenInterface[];
   orden1:ordenInterface;
+  linkPdf:string;
+  linkExcel:string;
   usuario:any = "";
   id:any;
 
   ngOnInit(): void {
     this.usuario = localStorage.getItem('correo');
+    this.linkPdf = "http://localhost:8080/reporte/ordenes2?usuario="+ this.usuario +"&tipo=PDF";
+    this.linkExcel = "http://localhost:8080/reporte/ordenes2?usuario="+ this.usuario +"&tipo=EXCEL";
     this.api1.obtenerIdPorCorreo(this.usuario).subscribe(data=>{
       this.id = data.mensaje;
       this.api.obtenerOrdenesPorUsuario(data.mensaje).subscribe(data=>{
@@ -52,6 +56,14 @@ export class OrdenesProveedorComponent implements OnInit {
 
   editarOrden(id:any){
     this.router.navigate(['editarOrden',id]);
+  }
+
+  pdf(){
+    window.location.href = this.linkPdf;
+  }
+
+  excel(){
+    window.location.href = this.linkExcel;
   }
 
 }

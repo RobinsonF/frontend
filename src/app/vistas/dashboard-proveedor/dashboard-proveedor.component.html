@@ -3,7 +3,11 @@
     <div id="content-wrapper" class="d-flex flex-column">
         <div id="content">
             <app-header></app-header>
-            <h1>¡Bienvenidos!</h1>
+            <div class="d-sm-flex align-items-center justify-content-between mb-4">
+                <h2 class="h3 mb-0 text-gray-800">Gráfica de cuadrillas</h2>
+                <a (click)="pdf()" target="_blank" style="margin-right:60px" class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm"><i
+                        class="fas fa-download fa-sm text-white-50"></i> Generar Reporte</a>
+            </div>
         </div>
         <app-footer></app-footer>
     </div>

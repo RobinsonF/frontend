@@ -15,6 +15,8 @@ export class CuadrillasProveedorComponent implements OnInit {
 
   pages: number = 1;
   usuario:any = "";
+  linkPdf:string;
+  linkExcel:string;
   id:any;
   cuadrillas:cuadrillaInterface[];
   cuadrilla1:cuadrillaInterface;
@@ -23,6 +25,8 @@ export class CuadrillasProveedorComponent implements OnInit {
 
   ngOnInit(): void {
     this.usuario = localStorage.getItem('correo');
+    this.linkPdf = "http://localhost:8080/reporte/cuadrillasP?usuario="+ this.usuario +"&tipo=PDF";
+    this.linkExcel = "http://localhost:8080/reporte/cuadrillasP?usuario="+ this.usuario +"&tipo=EXCEL";
     this.api.obtenerIdPorCorreo(this.usuario).subscribe(data=>{
       this.id = data.mensaje;
       this.api2.obtenerCuadrillaPorUsuario(data.mensaje).subscribe(data=>{
@@ -59,6 +63,14 @@ export class CuadrillasProveedorComponent implements OnInit {
 
   editarCuadrilla(id:any){
     this.router.navigate(['editarCuadrilla',id]);
+  }
+
+  pdf(){
+    window.location.href = this.linkPdf;
+  }
+
+  excel(){
+    window.location.href = this.linkExcel;
   }
 
 }

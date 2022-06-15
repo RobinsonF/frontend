@@ -9,11 +9,11 @@
                 <h1 class="m-0 font-weight-bold text-primary">Gestión de Ordenes de trabajo</h1>
 
                 <div>
-                    <a href="http://localhost:8080/reporte/ordenes?tipo=PDF" target="_blank" style="width: 170px; height:40px; display: inline-block; margin-block-end: 30px">
+                    <a (click)="pdf()" target="_blank" style="width: 170px; height:40px; display: inline-block; margin-block-end: 30px">
                         <img src="assets/img/pdf.png" width="70" height="70">
                     </a>
     
-                    <a href="http://localhost:8080/reporte/ordenes?tipo=EXCEL" style="width: 170px; height:40px; display: inline-block">
+                    <a (click)="excel()" style="width: 170px; height:40px; display: inline-block">
                         <img src="assets/img/excel.png" width="70" height="70">
                     </a>
                 </div>

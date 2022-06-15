@@ -15,6 +15,8 @@ export class EmpleadosProveedorComponent implements OnInit {
   pages: number = 1;
 
   empleados:empleadoInterface[];
+  linkPdf:string;
+  linkExcel:string;
   empleado1:empleadoInterface;
   usuario:any = "";
   id:any;
@@ -23,6 +25,8 @@ export class EmpleadosProveedorComponent implements OnInit {
 
   ngOnInit(): void {
     this.usuario = localStorage.getItem('correo');
+    this.linkPdf = "http://localhost:8080/reporte/empleados2?usuario="+ this.usuario +"&tipo=PDF";
+    this.linkExcel = "http://localhost:8080/reporte/empleados2?usuario="+ this.usuario +"&tipo=EXCEL";
     this.api2.obtenerIdPorCorreo(this.usuario).subscribe(data=>{
       this.id = data.mensaje;
       this.api.obtenerEmpleadosPorUsuario(data.mensaje).subscribe(data=>{
@@ -52,6 +56,14 @@ export class EmpleadosProveedorComponent implements OnInit {
 
     editarEmpleado(id:any){
       this.router.navigate(['editarEmpleado',id]);
+    }
+
+    pdf(){
+      window.location.href = this.linkPdf;
+    }
+  
+    excel(){
+      window.location.href = this.linkExcel;
     }
   
 

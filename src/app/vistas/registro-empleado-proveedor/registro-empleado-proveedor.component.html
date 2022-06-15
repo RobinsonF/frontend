@@ -30,10 +30,14 @@
                                                            placeholder="Apellido del empleado">
                                                 </div>
                                                 <div class="col-sm-6 mb-3 mb-sm-0">
-                                                    <input type="text" class="form-control form-control-user" id="txtCedula" formControlName="cedula"
+                                                    <input type="text" maxlength="10" class="form-control form-control-user" id="txtCedula" formControlName="cedula"
                                                            placeholder="Cédula del empleado">
+                                                        <span *ngIf="registroForm.get('cedula')?.errors?.['pattern']">
+                                                            (Sólo se aceptan números)
+                                                        </span>
                                                 </div>
                                                 <div style="float: top;margin-top: 30px; float: left; margin-left: 20px; width: 300px;">
+                                                    <label for="">Selccione la cuadrilla</label>
                                                     <select formControlName="nombreCuadrilla">
                                                         <option *ngFor="let cuadrilla of cuadrillas" [ngValue]="cuadrilla.nombreCuadrilla">{{cuadrilla.nombreCuadrilla}}</option>
                                                     </select>
