@@ -52,8 +52,11 @@ export class UsuariosComponent implements OnInit {
       data.id_usuario = id;
       this.usuario = data;
       this.api.eliminarUsuario(this.usuario).subscribe(data=>{
-        console.log(data);
-        location.reload();
+        if(data.mensaje=="No es posible eliminar al usuario porque cuanta con cuadrillas activas"){
+          alert(data.mensaje);
+        }else{
+          location.reload();
+        }
       });
     }
   }

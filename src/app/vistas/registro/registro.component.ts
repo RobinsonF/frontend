@@ -59,6 +59,9 @@ export class RegistroComponent implements OnInit {
         }else if (data.mensaje=="El login ya se encuentra registrado"){
           this.errorForm = true;
           this.errorMensaje = data.mensaje;
+        }else if(data.mensaje=="El telefono ya se encuentra registrado"){
+          this.errorForm = true;
+          this.errorMensaje = data.mensaje;
         }else{
           this.api.enviarCorreo(this.correo).subscribe(data1 =>{ 
           });

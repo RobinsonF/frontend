@@ -26,6 +26,7 @@
                                          placeholder="Nombre del material">
                                 </div>
                                 <div style=" float: end;margin-block-end: 20px; float: top;margin-top: 20px; float: left; margin-left: 20px; width: 300px;">
+                                  <label for="">Seleccione el tipo de material</label>
                                   <select formControlName="nombreTipoMaterial">
                                     <option *ngFor="let tipoMaterial of tipoMateriales" [ngValue]="tipoMaterial.nombre">{{tipoMaterial.nombre}}</option>
                                   </select>
