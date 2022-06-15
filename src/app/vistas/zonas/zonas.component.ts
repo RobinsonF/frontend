@@ -31,7 +31,11 @@ export class ZonasComponent implements OnInit {
       return;
     }else{
       this.api.eliminarZona(this.zona1).subscribe(data=>{
-        location.reload();
+        if(data.mensaje=="Eliminado correctamente"){
+          location.reload();
+        }else{
+          alert(data.mensaje);
+        }
       });
     }
   }
